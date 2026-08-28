@@ -1,0 +1,113 @@
+@{
+    ViewData["Title"] = "All Products";
+}
+
+<div class="container py-4">
+    <!-- Header with Back navigation -->
+    <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+        <div>
+            <h1 class="h2 fw-bold text-dark mb-1">Danh Sách Sản Phẩm</h1>
+            <p class="text-muted mb-0">Hiển thị các thiết bị công nghệ hiện đại</p>
+        </div>
+        <a asp-action="Index" class="btn btn-outline-secondary px-3 py-2 rounded-3 hover-transition">
+            <span class="me-1">←</span> Quay lại Dashboard
+        </a>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="row g-4">
+        <!-- Product 1 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-shadow-lg transition-all">
+                <div class="position-relative bg-light text-center py-4" style="height: 200px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);">
+                    <span class="fs-1">📱</span>
+                    <span class="position-absolute top-0 start-0 m-3 badge bg-danger rounded-pill px-3 py-2 fw-semibold">Hot</span>
+                </div>
+                <div class="card-body p-4 d-flex flex-column">
+                    <span class="text-primary fw-semibold fs-7 uppercase mb-1">Smartphones</span>
+                    <h5 class="card-title fw-bold text-dark mb-2">iPhone 15 Pro Max</h5>
+                    <p class="card-text text-muted flex-grow-1 fs-7">Thiết kế vỏ Titan bền bỉ, chip A17 Pro siêu mạnh mẽ và hệ thống camera zoom quang học 5x đỉnh cao.</p>
+                    
+                    <div class="mt-3">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="fs-5 fw-bold text-indigo">34.990.000đ</span>
+                            <span class="text-success small fw-semibold">✔️ Hàng sẵn có</span>
+                        </div>
+                        <button class="btn btn-primary w-100 py-2.5 rounded-3 hover-scale transition-all" onclick="alert('Đã thêm iPhone 15 Pro Max vào giỏ hàng!')">
+                            Thêm vào giỏ hàng
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-shadow-lg transition-all">
+                <div class="position-relative bg-light text-center py-4" style="height: 200px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #ffe4e6 0%, #fecdd3 100%);">
+                    <span class="fs-1">💻</span>
+                    <span class="position-absolute top-0 start-0 m-3 badge bg-success rounded-pill px-3 py-2 fw-semibold">New</span>
+                </div>
+                <div class="card-body p-4 d-flex flex-column">
+                    <span class="text-primary fw-semibold fs-7 uppercase mb-1">Laptops</span>
+                    <h5 class="card-title fw-bold text-dark mb-2">MacBook Pro M3 Max</h5>
+                    <p class="card-text text-muted flex-grow-1 fs-7">Hiệu năng đồ họa cực đỉnh với chip M3 Max hoàn toàn mới, hỗ trợ tối đa cho lập trình và đồ họa chuyên nghiệp.</p>
+                    
+                    <div class="mt-3">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="fs-5 fw-bold text-indigo">79.990.000đ</span>
+                            <span class="text-success small fw-semibold">✔️ Hàng sẵn có</span>
+                        </div>
+                        <button class="btn btn-primary w-100 py-2.5 rounded-3 hover-scale transition-all" onclick="alert('Đã thêm MacBook Pro M3 Max vào giỏ hàng!')">
+                            Thêm vào giỏ hàng
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-shadow-lg transition-all">
+                <div class="position-relative bg-light text-center py-4" style="height: 200px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #ecfdf5 0%, #a7f3d0 100%);">
+                    <span class="fs-1">🎧</span>
+                    <span class="position-absolute top-0 start-0 m-3 badge bg-secondary rounded-pill px-3 py-2 fw-semibold">-10% Off</span>
+                </div>
+                <div class="card-body p-4 d-flex flex-column">
+                    <span class="text-primary fw-semibold fs-7 uppercase mb-1">Audio</span>
+                    <h5 class="card-title fw-bold text-dark mb-2">Sony WH-1000XM5</h5>
+                    <p class="card-text text-muted flex-grow-1 fs-7">Tai nghe chống ồn đỉnh cao của Sony, thời lượng pin lên đến 30h cùng âm sắc chi tiết tuyệt mỹ.</p>
+                    
+                    <div class="mt-3">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="fs-5 fw-bold text-indigo">7.690.000đ</span>
+                            <span class="text-secondary small fw-semibold">⚡ Chỉ còn 2 sản phẩm</span>
+                        </div>
+                        <button class="btn btn-primary w-100 py-2.5 rounded-3 hover-scale transition-all" onclick="alert('Đã thêm Sony WH-1000XM5 vào giỏ hàng!')">
+                            Thêm vào giỏ hàng
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .transition-all {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .hover-shadow-lg:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+    }
+    .hover-scale:hover {
+        transform: scale(1.02);
+    }
+    .text-indigo {
+        color: #4f46e5;
+    }
+    .fs-7 {
+        font-size: 0.9rem;
+    }
+</style>

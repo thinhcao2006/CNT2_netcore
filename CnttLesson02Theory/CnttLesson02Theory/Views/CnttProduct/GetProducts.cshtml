@@ -1,0 +1,116 @@
+@using CnttLesson02Theory.Models
+@{
+    ViewData["Title"] = "Object Data from Controller";
+    var productVB = ViewBag.product as Product;
+    var productVD = ViewData["productVD"] as Product;
+}
+
+<div class="container py-4">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+        <div>
+            <h1 class="h2 fw-bold text-dark mb-1">Truyền Đối Tượng Từ Controller Ra View</h1>
+            <p class="text-muted mb-0">Minh họa Slide 14 - Hiển thị thông tin đối tượng Product</p>
+        </div>
+        <a asp-action="Index" class="btn btn-outline-secondary px-3 py-2 rounded-3 hover-transition">
+            <span class="me-1">←</span> Quay lại Dashboard
+        </a>
+    </div>
+
+    <!-- Product Object Visualizations -->
+    <div class="row g-4">
+        <!-- Card 1: Retrieving from ViewBag -->
+        <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-shadow transition-all">
+                <div class="card-header bg-primary text-white p-3 border-0">
+                    <h5 class="mb-0 fw-bold">Lấy từ ViewBag (<code>ViewBag.product</code>)</h5>
+                    <small class="text-white-50">Truy cập kiểu dynamic - Không cần ép kiểu trong controller</small>
+                </div>
+                <div class="card-body p-4">
+                    @if (productVB != null)
+                    {
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="bg-primary-subtle rounded-3 p-3 me-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                <span class="fs-2">🚲</span>
+                            </div>
+                            <div>
+                                <span class="badge bg-primary-subtle text-primary mb-1">ID: @productVB.ProductId</span>
+                                <h3 class="fw-bold text-dark mb-0 fs-4">@productVB.ProductName</h3>
+                            </div>
+                        </div>
+
+                        <ul class="list-group list-group-flush rounded-3">
+                            <li class="list-group-item d-flex justify-content-between align-items-center px-0 py-3">
+                                <span class="text-muted">Năm phát hành (Year):</span>
+                                <span class="fw-semibold text-dark">@productVB.YearRelease</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center px-0 py-3">
+                                <span class="text-muted">Giá bán (Price):</span>
+                                <span class="fw-bold text-primary fs-5">$@productVB.Price</span>
+                            </li>
+                        </ul>
+                    }
+                    else
+                    {
+                        <div class="alert alert-danger mb-0">Không tìm thấy sản phẩm trong ViewBag.</div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Retrieving from ViewData -->
+        <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-shadow transition-all">
+                <div class="card-header bg-success text-white p-3 border-0">
+                    <h5 class="mb-0 fw-bold">Lấy từ ViewData (<code>ViewData["productVD"]</code>)</h5>
+                    <small class="text-white-50">Cần phải ép kiểu (<code>as Product</code>)</small>
+                </div>
+                <div class="card-body p-4">
+                    @if (productVD != null)
+                    {
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="bg-success-subtle rounded-3 p-3 me-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                <span class="fs-2">🚲</span>
+                            </div>
+                            <div>
+                                <span class="badge bg-success-subtle text-success mb-1">ID: @productVD.ProductId</span>
+                                <h3 class="fw-bold text-dark mb-0 fs-4">@productVD.ProductName</h3>
+                            </div>
+                        </div>
+
+                        <ul class="list-group list-group-flush rounded-3">
+                            <li class="list-group-item d-flex justify-content-between align-items-center px-0 py-3">
+                                <span class="text-muted">Năm phát hành (Year):</span>
+                                <span class="fw-semibold text-dark">@productVD.YearRelease</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center px-0 py-3">
+                                <span class="text-muted">Giá bán (Price):</span>
+                                <span class="fw-bold text-success fs-5">$@productVD.Price</span>
+                            </li>
+                        </ul>
+                    }
+                    else
+                    {
+                        <div class="alert alert-danger mb-0">Không tìm thấy sản phẩm trong ViewData.</div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .transition-all {
+        transition: all 0.3s ease;
+    }
+    .hover-shadow:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+    }
+    .bg-primary-subtle {
+        background-color: #e0e7ff;
+    }
+    .bg-success-subtle {
+        background-color: #d1fae5;
+    }
+</style>

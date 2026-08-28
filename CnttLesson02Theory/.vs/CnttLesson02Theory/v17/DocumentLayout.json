@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\hoctap\\CNT2.NET\\CNT2_netcore\\CnttLesson02Theory\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{561784FE-9933-4179-A6BE-9139626082DD}|CnttLesson02Theory\\CnttLesson02Theory.csproj|c:\\hoctap\\cnt2.net\\cnt2_netcore\\cnttlesson02theory\\cnttlesson02theory\\controllers\\cnttproductcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{561784FE-9933-4179-A6BE-9139626082DD}|CnttLesson02Theory\\CnttLesson02Theory.csproj|solutionrelative:cnttlesson02theory\\controllers\\cnttproductcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CnttProductController.cs",
+              "DocumentMoniker": "C:\\hoctap\\CNT2.NET\\CNT2_netcore\\CnttLesson02Theory\\CnttLesson02Theory\\Controllers\\CnttProductController.cs",
+              "RelativeDocumentMoniker": "CnttLesson02Theory\\Controllers\\CnttProductController.cs",
+              "ToolTip": "C:\\hoctap\\CNT2.NET\\CNT2_netcore\\CnttLesson02Theory\\CnttLesson02Theory\\Controllers\\CnttProductController.cs",
+              "RelativeToolTip": "CnttLesson02Theory\\Controllers\\CnttProductController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-26T04:57:28.8Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

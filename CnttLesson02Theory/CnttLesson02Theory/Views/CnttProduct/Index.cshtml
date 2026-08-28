@@ -1,0 +1,112 @@
+@{
+    ViewData["Title"] = "Product Dashboard";
+}
+
+<div class="container py-4">
+    <!-- Premium Header Banner -->
+    <div class="p-5 mb-4 rounded-4 shadow-sm text-white" style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);">
+        <div class="container-fluid py-3">
+            <span class="badge bg-light text-primary mb-2 fw-semibold px-3 py-2 rounded-pill">Bài học 02 Theory</span>
+            <h1 class="display-5 fw-bold text-white mb-3">Hệ Thống Quản Lý Sản Phẩm</h1>
+            <p class="col-md-9 fs-5 text-white-50">Chào mừng bạn đến với CnttProductController. Đây là minh họa thực tế về cách tạo Controller, định nghĩa Action và liên kết với View trong ASP.NET Core MVC.</p>
+            <hr class="my-4 border-white-50">
+            <a asp-action="GetAllProducts" class="btn btn-light btn-lg text-primary fw-bold px-4 py-3 rounded-3 shadow-sm hover-translate transition-all">
+                <i class="bi bi-grid-3x3-gap-fill me-2"></i> Khám Phá Sản Phẩm <span class="ms-1">→</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm rounded-4 hover-lift transition-all">
+                <div class="card-body p-4 d-flex flex-column">
+                    <div class="feature-icon bg-primary-subtle text-primary rounded-3 p-3 mb-3 d-inline-flex align-self-start" style="width: 50px; height: 50px; justify-content: center; align-items: center;">
+                        <span class="fs-4">🛡️</span>
+                    </div>
+                    <h5 class="fw-bold text-dark">Controllers & Actions</h5>
+                    <p class="text-muted flex-grow-1">Học cách cấu trúc logic nghiệp vụ trong Controller. Action trả về Views linh hoạt.</p>
+                    <a asp-action="GetAllProducts" class="text-decoration-none fw-semibold text-primary mt-3">
+                        Xem chi tiết danh sách <span class="ms-1">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm rounded-4 hover-lift transition-all">
+                <div class="card-body p-4 d-flex flex-column">
+                    <div class="feature-icon bg-success-subtle text-success rounded-3 p-3 mb-3 d-inline-flex align-self-start" style="width: 50px; height: 50px; justify-content: center; align-items: center;">
+                        <span class="fs-4">🎨</span>
+                    </div>
+                    <h5 class="fw-bold text-dark">Razor Views</h5>
+                    <p class="text-muted flex-grow-1">Tìm hiểu cú pháp `@@...` để liên kết dữ liệu và render mã HTML động trên trình duyệt.</p>
+                    <a href="/Home/Index" class="text-decoration-none fw-semibold text-success mt-3">
+                        Trang chủ mặc định <span class="ms-1">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm rounded-4 hover-lift transition-all">
+                <div class="card-body p-4 d-flex flex-column">
+                    <div class="feature-icon bg-warning-subtle text-warning rounded-3 p-3 mb-3 d-inline-flex align-self-start" style="width: 50px; height: 50px; justify-content: center; align-items: center;">
+                        <span class="fs-4">🌐</span>
+                    </div>
+                    <h5 class="fw-bold text-dark">Routing trong MVC</h5>
+                    <p class="text-muted flex-grow-1">Xem cách ASP.NET định tuyến request từ URL `{controller}/{action}/{id}` đến Controller tương ứng.</p>
+                    <a href="/Home/Privacy" class="text-decoration-none fw-semibold text-warning mt-3">
+                        Xem Privacy Policy <span class="ms-1">→</span>
+                    </a>
+                </div>
+            </div>
+    <!-- Slide 12 & 13 Section: Passing Data -->
+    <div class="card border-0 shadow-sm rounded-4 p-4 mb-4">
+        <h4 class="fw-bold mb-3 text-dark">🚀 Truyền dữ liệu từ Controller ra View (Slide 12 & 13)</h4>
+        <p class="text-muted">Các giá trị dưới đây được truyền động từ <code>CnttProductController.Index()</code>:</p>
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="p-3 border rounded-3 bg-primary-subtle text-primary border-primary-subtle">
+                    <span class="badge bg-primary mb-2">ViewData</span>
+                    <h5 class="mb-0 fw-semibold text-break">@ViewData["messageVD"]</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 border rounded-3 bg-success-subtle text-success border-success-subtle">
+                    <span class="badge bg-success mb-2">ViewBag</span>
+                    <h5 class="mb-0 fw-semibold text-break">@ViewBag.messageVB</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 border rounded-3 bg-secondary-subtle text-dark border-secondary-subtle" style="background-color: #f1f5f9;">
+                    <span class="badge bg-secondary mb-2">TempData</span>
+                    <h5 class="mb-0 fw-semibold text-break">@TempData["messageTD"]</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .transition-all {
+        transition: all 0.3s ease;
+    }
+    .hover-translate:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+    }
+    .hover-lift:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.08) !important;
+    }
+    .bg-primary-subtle {
+        background-color: #e0e7ff;
+    }
+    .bg-success-subtle {
+        background-color: #d1fae5;
+    }
+    .bg-warning-subtle {
+        background-color: #fef3c7;
+    }
+</style>

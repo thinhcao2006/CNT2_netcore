@@ -1,0 +1,65 @@
+@{
+    ViewData["Title"] = "CNTT Lesson 02 - Theory";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                <div class="card-header bg-dark text-white p-4 d-flex align-items-center justify-content-between">
+                    <div>
+                        <h4 class="mb-0 fw-bold">Kết quả - Bài học 02 Theory</h4>
+                        <small class="text-white-50">Tạo Controller, Action và View trong ASP.NET Core MVC</small>
+                    </div>
+                    <span class="badge bg-primary px-3 py-2 rounded-pill">Hoàn thành</span>
+                </div>
+                <div class="card-body p-5">
+                    <h3 class="fw-bold mb-4">Các thành phần đã được tạo:</h3>
+                    
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-light rounded-4 h-100 border border-dark-subtle">
+                                <h5 class="fw-bold text-primary mb-3">🛠️ Controller & Actions</h5>
+                                <p class="text-muted mb-2"><strong>File:</strong> <code>Controllers/CnttProductController.cs</code></p>
+                                <ul class="list-unstyled ps-1 text-muted">
+                                    <li>✔️ <code>Index()</code> - Action mặc định (Truyền ViewData, ViewBag, TempData)</li>
+                                    <li>✔️ <code>GetAllProducts()</code> - Action mới trả về view danh sách</li>
+                                    <li>✔️ <code>GetProducts()</code> - Action truyền đối tượng Product (Object) ra View</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-light rounded-4 h-100 border border-dark-subtle">
+                                <h5 class="fw-bold text-success mb-3">🎨 Views (Giao diện Razor)</h5>
+                                <p class="text-muted mb-2"><strong>Thư mục:</strong> <code>Views/CnttProduct/</code></p>
+                                <ul class="list-unstyled ps-1 text-muted">
+                                    <li>✔️ <code>Index.cshtml</code> - Dashboard (Hiển thị dữ liệu ViewData/Bag/TempData)</li>
+                                    <li>✔️ <code>Products.cshtml</code> - Giao diện danh sách sản phẩm mẫu</li>
+                                    <li>✔️ <code>GetProducts.cshtml</code> - Chi tiết Product sử dụng ViewBag và ViewData</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="fw-bold mb-3">Xem kết quả trên ứng dụng:</h4>
+                    <p class="text-muted mb-4">Bạn có thể nhấp vào các nút dưới đây để kiểm tra trực tiếp các đường dẫn định tuyến (Routing) của ứng dụng:</p>
+                    
+                    <div class="d-flex flex-wrap gap-3">
+                        <a asp-controller="CnttProduct" asp-action="Index" class="btn btn-primary px-4 py-2.5 rounded-3 fw-bold">
+                            Chạy Index Action (<code class="text-white-50">/CnttProduct</code>)
+                        </a>
+                        <a asp-controller="CnttProduct" asp-action="GetAllProducts" class="btn btn-success px-4 py-2.5 rounded-3 fw-bold">
+                            Chạy GetAllProducts Action (<code class="text-white-50">/CnttProduct/GetAllProducts</code>)
+                        </a>
+                        <a asp-controller="CnttProduct" asp-action="GetProducts" class="btn btn-warning px-4 py-2.5 rounded-3 fw-bold text-black">
+                            Chạy GetProducts Action (<code class="text-black-50">/CnttProduct/GetProducts</code>)
+                        </a>
+                        <a href="/" class="btn btn-outline-dark px-4 py-2.5 rounded-3">
+                            Quay lại Trang Chủ
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
