@@ -1,0 +1,48 @@
+@model CnttLesson04Lab.Models.Product
+@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+    string isAM = Model.CreatedAt.Hour < 12 ? "SA" : "CH";
+    string formattedDate = Model.CreatedAt.ToString("dd/MM/yyyy hh:mm:ss ") + isAM;
+}
+
+<h2>Chi tiết sản phẩm</h2>
+<hr />
+<div class="row">
+    <div class="col-md-5 mb-4">
+        <img src="@Model.Image" alt="@Model.Name" class="img-fluid img-thumbnail" style="width: 100%; object-fit: cover; max-height: 450px;" />
+    </div>
+    <div class="col-md-7">
+        <h2 class="mb-3">Sản phẩm: @Model.Name</h2>
+        <h4 class="mb-3">
+            Giá gốc: <del class="text-danger">@Model.Price.ToString("0")</del> &nbsp;&nbsp; 
+            <strong>Giá mới</strong> <span class="text-success font-weight-bold">@Model.SalePrice.ToString("0")</span>
+        </h4>
+        
+        <div class="mb-3">
+            <strong>Mô Tả:</strong>
+            <p class="text-muted mt-1" style="font-size: 1.05rem; line-height: 1.6;">
+                @Model.Description
+            </p>
+        </div>
+
+        <h5 class="mb-3">
+            Trạng thái: 
+            @if (Model.Status == 1)
+            {
+                <span class="text-success">Còn hàng</span>
+            }
+            else
+            {
+                <span class="text-danger">Hết hàng</span>
+            }
+        </h5>
+
+        <h5 class="mb-4">
+            Ngày đăng: @formattedDate
+        </h5>
+
+        <div>
+            <a asp-route="product_index" class="btn btn-danger">Về danh sách</a>
+        </div>
+    </div>
+</div>
