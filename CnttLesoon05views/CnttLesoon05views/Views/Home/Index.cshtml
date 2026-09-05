@@ -1,0 +1,418 @@
+@{
+    ViewData["Title"] = "Bài 5: Ngôn ngữ Razor & Cấu trúc View trong ASP.NET Core";
+
+    // --- Slide 7: Cú pháp Razor C# ---
+    var total = 7000;
+    var myMessage = "Biết người là trí, biết bản thân mới là trí tuệ thật sự. " +
+                   "Thắng người là sự mạnh mẽ, thắng bản thân mới là sức mạnh thực sự";
+
+    var greeting = "Chúc bạn thành công!";
+    var weekDay = DateTime.Now.DayOfWeek;
+    var greetingMessage = greeting + " Hôm nay là: " + weekDay;
+}
+
+<div class="container my-4">
+    <div class="p-4 mb-4 bg-light rounded-3 shadow-sm border border-primary border-2">
+        <h1 class="display-6 fw-bold text-primary">Tổ chức các View & Ngôn ngữ Razor trong ASP.NET Core</h1>
+        <p class="fs-5 text-secondary mb-0">Demo thực hành kiến thức Bài 05 (Devmaster Academy - Slide 7 đến 27)</p>
+    </div>
+
+    <!-- Slide 7: Cú pháp Razor C# -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h4 class="card-title mb-0">1. Cú pháp Razor C# (Slide 7)</h4>
+        </div>
+        <div class="card-body">
+            <h5 class="text-secondary fw-bold mb-3">Ví dụ Inline & Block Expressions:</h5>
+            <div class="alert alert-info">
+                <p class="mb-2"><strong>Tài khoản của bạn đang có:</strong> $ @total</p>
+                <p class="mb-2"><strong>Câu nói để đời của Lão Tử:</strong> @myMessage</p>
+                <p class="mb-0"><strong>Lời chúc:</strong> @greetingMessage</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 8: Cấu trúc IF...ELSE -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-success text-white">
+            <h4 class="card-title mb-0">2. Cấu trúc Cụm Điều Kiện IF...ELSE (Slide 8)</h4>
+        </div>
+        <div class="card-body">
+            <h5 class="h6 mb-3 text-success fw-bold">Kết quả kiểm tra điều kiện (IF...ELSE):</h5>
+
+            <div class="p-3 bg-light rounded border mb-3">
+                @if (total >= 5000)
+                {
+                    <p class="text-success fw-bold">✓ Bạn nằm trong số 30% những người giàu nhất thế giới</p>
+                }
+                else if (total >= 2000)
+                {
+                    <p class="text-warning fw-bold">✓ Bạn nằm trong số 50% những người giàu nhất thế giới</p>
+                }
+                else
+                {
+                    <p class="text-muted">Chưa có số liệu thống kê</p>
+                }
+
+                @{
+                    if (total % 2 == 0)
+                    {
+                        <p class="text-info fw-bold mb-0">✓ Số tiền trong tài khoản của bạn là số chẵn</p>
+                    }
+                    else
+                    {
+                        <p class="text-danger fw-bold mb-0">✓ Số tiền trong tài khoản của bạn là số lẻ</p>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 9: Cấu trúc lặp (for, foreach) -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-warning text-dark">
+            <h4 class="card-title mb-0">3. Cấu trúc Lặp (Slide 9)</h4>
+        </div>
+        <div class="card-body">
+            <h5 class="h6 mb-3 fw-bold">Dùng vòng lặp FOR sinh button màu chẵn/lẻ:</h5>
+            <div class="mb-4">
+                @{
+                    for (int i = 0; i < 10; i++)
+                    {
+                        if (i % 2 == 0)
+                        {
+                            <span class="btn btn-danger me-1">@i</span>
+                        }
+                        else
+                        {
+                            <span class="btn btn-success me-1">@i</span>
+                        }
+                    }
+                }
+            </div>
+
+            <h5 class="h6 mb-3 fw-bold">Dùng vòng lặp FOREACH duyệt mảng ảnh:</h5>
+            <div class="d-flex flex-wrap gap-2">
+                @{
+                    string[] images = { "icon1.png", "icon2.png", "icon3.png", "icon4.png", "icon5.png", "icon6.png" };
+                    foreach (var c in images)
+                    {
+                        <div class="p-2 border rounded bg-white text-center">
+                            <span class="badge bg-secondary mb-1">@c</span>
+                            <br />
+                            <img src="~/images/@c" width="80" alt="@c" onerror="this.src='https://via.placeholder.com/80?text=Icon'" />
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 10-12: HtmlHelpers & Strongly Typed HtmlHelpers -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-info text-white">
+            <h4 class="card-title mb-0">4. HTML Helpers & Strongly Typed Helpers (Slide 10-12)</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="fw-bold text-primary">Standard HtmlHelpers:</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item"><code>@@Html.BeginForm()</code> / <code>@@Html.EndForm()</code></li>
+                        <li class="list-group-item"><code>@@Html.Label()</code></li>
+                        <li class="list-group-item"><code>@@Html.TextBox()</code> / <code>@@Html.Hidden()</code></li>
+                        <li class="list-group-item"><code>@@Html.Password()</code></li>
+                        <li class="list-group-item"><code>@@Html.TextArea()</code></li>
+                        <li class="list-group-item"><code>@@Html.CheckBox()</code> / <code>@@Html.RadioButton()</code></li>
+                        <li class="list-group-item"><code>@@Html.DropDownList()</code> / <code>@@Html.ListBox()</code></li>
+                        <li class="list-group-item"><code>@@Html.ActionLink()</code> / <code>@@Url.Action()</code></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="fw-bold text-success">Strongly Typed HtmlHelpers (View gắn Model):</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item"><code>@@Html.LabelFor()</code></li>
+                        <li class="list-group-item"><code>@@Html.TextBoxFor()</code> / <code>@@Html.HiddenFor()</code></li>
+                        <li class="list-group-item"><code>@@Html.PasswordFor()</code></li>
+                        <li class="list-group-item"><code>@@Html.TextAreaFor()</code></li>
+                        <li class="list-group-item"><code>@@Html.CheckBoxFor()</code> / <code>@@Html.RadioButtonFor()</code></li>
+                        <li class="list-group-item"><code>@@Html.DropDownListFor()</code> / <code>@@Html.ListBoxFor()</code></li>
+                        <li class="list-group-item"><code>@@Html.EditorFor()</code> / <code>@@Html.DisplayFor()</code></li>
+                        <li class="list-group-item"><code>@@Html.DisplayNameFor()</code></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 13-15: Tag Helpers chi tiết -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-dark text-white">
+            <h4 class="card-title mb-0">5. Danh sách Tag Helpers Thông Dụng (Slide 14 & 15)</h4>
+        </div>
+        <div class="card-body">
+            <p><strong>Tag Helpers</strong> đính kèm trực tiếp vào các thẻ HTML để xử lý phía Server-side.</p>
+            <div class="alert alert-secondary mb-3">
+                <p class="mb-1">Khai báo trong <code>_ViewImports.cshtml</code>:</p>
+                <code>@@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers</code>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Thẻ HTML</th>
+                            <th>Cú pháp Tag Helper</th>
+                            <th>Mô tả</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Thẻ liên kết (Anchor)</td>
+                            <td><code>&lt;a asp-area="[area]" asp-controller="[controller]" asp-action="[action]" asp-route-[param]="[val]"&gt;Link&lt;/a&gt;</code></td>
+                            <td>Tạo đường dẫn URL tới Action trong Controller</td>
+                        </tr>
+                        <tr>
+                            <td>Thẻ Form</td>
+                            <td><code>&lt;form asp-controller="[controller]" asp-action="[action]" method="post"&gt;&lt;/form&gt;</code></td>
+                            <td>Tạo biểu mẫu gửi dữ liệu lên Action</td>
+                        </tr>
+                        <tr>
+                            <td>Thẻ Label</td>
+                            <td><code>&lt;label asp-for="PropertyName"&gt;&lt;/label&gt;</code></td>
+                            <td>Tạo nhãn hiển thị cho thuộc tính của Model</td>
+                        </tr>
+                        <tr>
+                            <td>Thẻ Input</td>
+                            <td><code>&lt;input asp-for="PropertyName" /&gt;</code></td>
+                            <td>Tạo ô nhập liệu đính kèm trường Model</td>
+                        </tr>
+                        <tr>
+                            <td>Thẻ Textarea</td>
+                            <td><code>&lt;textarea asp-for="PropertyName"&gt;&lt;/textarea&gt;</code></td>
+                            <td>Tạo văn bản nhiều dòng cho thuộc tính Model</td>
+                        </tr>
+                        <tr>
+                            <td>Thẻ Validation</td>
+                            <td><code>&lt;span asp-validation-for="PropertyName"&gt;&lt;/span&gt;</code></td>
+                            <td>Hiển thị thông báo lỗi kiểm tra dữ liệu (Validate)</td>
+                        </tr>
+                        <tr>
+                            <td>Thẻ Select</td>
+                            <td><code>&lt;select asp-for="PropertyName" asp-items="SelectList"&gt;&lt;/select&gt;</code></td>
+                            <td>Tạo danh sách chọn dropdown</td>
+                        </tr>
+                        <tr>
+                            <td>Thẻ Partial View</td>
+                            <td><code>&lt;partial name="PartialViewName" /&gt;</code></td>
+                            <td>Nhúng một View con vào View hiện tại (Core 2.1+)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 16-18: Phương thức Layout & Section -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-secondary text-white">
+            <h4 class="card-title mb-0">6. Bố Cục Layout, RenderBody & RenderSection (Slide 16-18)</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <h5 class="fw-bold text-primary">Phương thức trong Layout (Slide 16):</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <strong>@@RenderBody():</strong> Định vị nơi nhúng toàn bộ nội dung của View con. Chỉ xuất 1 lần duy nhất trong Layout.
+                        </li>
+                        <li class="list-group-item">
+                            <strong>@@RenderSection("Name"):</strong> Định vị khu vực nhúng các khối section định nghĩa riêng tại View con (ví dụ: Scripts, CSS).
+                        </li>
+                        <li class="list-group-item">
+                            <strong>@@await Component.InvokeAsync("Name"):</strong> Gọi và thực thi một ViewComponent.
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5 class="fw-bold text-success">_ViewStart & _Layout (Slide 17 & 18):</h5>
+                    <div class="p-3 bg-light rounded border">
+                        <p class="mb-2"><strong>_ViewStart.cshtml:</strong> Tệp mặc định chạy trước mỗi View để gán bố cục mặc định:</p>
+                        <pre class="bg-dark text-white p-2 rounded">@{ Layout = "_Layout"; }</pre>
+                        <p class="mb-0"><strong>_Layout.cshtml:</strong> Tệp chứa khung HTML dùng chung (<code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>, Navbar, Footer).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 19-21: Partial View -->
+    <div class="card mb-4 shadow-sm border-warning">
+        <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
+            <h4 class="card-title mb-0 fw-bold">7. Partial View trong ASP.NET Core (Slide 19 - 21)</h4>
+            <span class="badge bg-dark">Slide 19-21</span>
+        </div>
+        <div class="card-body">
+            <ul class="mb-3 fs-6">
+                <li><strong>PartialView</strong> là một tệp <code>.cshtml</code> được render ra trong phần render của View khác.</li>
+                <li>Nó giúp chia tệp <code>.cshtml</code> lớn thành các phần nhỏ dễ bảo trì.</li>
+                <li>Nó giúp giảm sự trùng lặp những phần markup được xuất hiện ở nhiều View khác nhau.</li>
+            </ul>
+
+            <h5 class="fw-bold text-primary mb-3">a. Demo Chia Khung Giao Diện Bằng Partial Views (Slide 19 & 20):</h5>
+            <div class="border border-3 border-secondary p-3 rounded bg-light mb-4">
+                <!-- Header Partial -->
+                @await Html.PartialAsync("_HeaderPartialView")
+
+                <!-- Slide Partial -->
+                @await Html.PartialAsync("_SlidePartialView")
+
+                <!-- Row for Left Partial & Content -->
+                <div class="row">
+                    <div class="col-md-4">
+                        @await Html.PartialAsync("_LeftPartialView")
+                    </div>
+                    <div class="col-md-8">
+                        <div class="p-4 bg-white border border-success rounded text-center mb-3 h-100 shadow-sm d-flex flex-column justify-content-center">
+                            <h4 class="text-success fw-bold">ContentView (View Chính)</h4>
+                            <p class="text-muted mb-0">Đây là vùng nội dung chính được render trong View cha.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Partial -->
+                @await Html.PartialAsync("_FooterPartialView")
+            </div>
+
+            <h5 class="fw-bold text-danger mb-3">b. Gọi Controller Action Trả Về PartialView Qua Ajax (Slide 21):</h5>
+            <div class="p-3 bg-light border rounded">
+                <p class="mb-2">Action <code>GetProductHot()</code> trên Controller trả về <code>PartialView("_ProductHotPartialView", productHot)</code>.</p>
+                <button id="btnLoadHotProducts" class="btn btn-danger fw-bold me-2">
+                    🔥 Tải Danh Sách Sản Phẩm HOT (Ajax)
+                </button>
+                <button id="btnClearHotProducts" class="btn btn-outline-secondary">
+                    Clear Nội Dung
+                </button>
+
+                <div id="hotProductsContainer" class="mt-3">
+                    <div class="alert alert-info mb-0">Nhấn nút trên để tải Partial View từ Server...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 22-27: View Component -->
+    <div class="card mb-4 shadow-sm border-primary">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h4 class="card-title mb-0 fw-bold">8. View Component trong ASP.NET Core (Slide 22 - 27)</h4>
+            <span class="badge bg-light text-dark">Slide 22-27</span>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-primary mb-4">
+                <h5 class="fw-bold">Đặc Điểm View Component (Slide 22):</h5>
+                <ul class="mb-0">
+                    <li>Thành phần mới trong ASP.NET Core, tương tự PartialView nhưng độc lập hơn.</li>
+                    <li>Là đối tượng <strong>riêng biệt</strong> không phụ thuộc vào Controller.</li>
+                    <li>Là một <strong>Class C#</strong> kế thừa từ lớp <code>ViewComponent</code>, có Data Model riêng, có thể nhận tham số.</li>
+                    <li>Dễ dàng <strong>unit test</strong> và ít bugs.</li>
+                </ul>
+            </div>
+
+            <!-- Slide 23, 24, 25 Overview -->
+            <div class="row mb-4">
+                <div class="col-md-6 mb-2">
+                    <div class="p-3 bg-light rounded border h-100">
+                        <h6 class="fw-bold text-success">📁 Tạo View Component (Slide 23, 24, 25):</h6>
+                        <ol class="small mb-0">
+                            <li><strong>Tạo Class C#:</strong> Chuột phải vào thư mục <code>ViewComponents</code> -> Thêm class mới. Phần kết thúc tên bắt buộc phải là <code>ViewComponent</code> (ví dụ: <code>CategoryViewComponent.cs</code>).</li>
+                            <li><strong>Tạo View Razor:</strong> Tạo thư mục <code>Views/Shared/Components/Category/Default.cshtml</code> để chứa file giao diện.</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="p-3 bg-light rounded border h-100">
+                        <h6 class="fw-bold text-primary">💻 Gọi & Truyền Tham Số (Slide 26 & 27):</h6>
+                        <p class="small mb-1"><strong>Gọi không tham số (Slide 26):</strong></p>
+                        <code class="d-block bg-dark text-white p-1 rounded mb-2">@@await Component.InvokeAsync("Category")</code>
+                        <p class="small mb-1"><strong>Truyền tham số lọc CategoryId > n (Slide 27):</strong></p>
+                        <code class="d-block bg-dark text-white p-1 rounded mb-0">@@await Component.InvokeAsync("Category", new { n = 2 })</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demo Slide 25 & 26: Gọi ViewComponent không tham số -->
+            <h5 class="fw-bold text-danger mb-3">a. Demo Gọi Category ViewComponent (Tất cả danh mục - Slide 25 & 26):</h5>
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="p-2 border rounded bg-light">
+                        <span class="badge bg-secondary mb-2">Cột 1: @@await Component.InvokeAsync("Category")</span>
+                        @await Component.InvokeAsync("Category")
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-2 border rounded bg-light">
+                        <span class="badge bg-secondary mb-2">Cột 2 (Tái sử dụng): @@await Component.InvokeAsync("Category")</span>
+                        @await Component.InvokeAsync("Category")
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demo Slide 27: Truyền tham số cho ViewComponent -->
+            <h5 class="fw-bold text-success mb-3">b. Demo Truyền Tham Số Lọc Cho View Component (Slide 27):</h5>
+            <div class="row mb-4">
+                <div class="col-md-6 mb-3">
+                    <div class="p-3 border border-success rounded bg-light">
+                        <span class="badge bg-success mb-2">Lọc CategoryId > 2: new { n = 2 }</span>
+                        <p class="small text-muted mb-2">Kết quả lọc ra các danh mục có CategoryId > 2 ("Đồ gia dụng", "Tiện ích"):</p>
+                        @await Component.InvokeAsync("Category", new { n = 2 })
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="p-3 border border-info rounded bg-light">
+                        <span class="badge bg-info text-dark mb-2">Lọc CategoryId > 1: new { n = 1 }</span>
+                        <p class="small text-muted mb-2">Kết quả lọc ra các danh mục có CategoryId > 1 ("Điện lạnh", "Đồ gia dụng", "Tiện ích"):</p>
+                        @await Component.InvokeAsync("Category", new { n = 1 })
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="fw-bold text-primary mb-3">c. Các View Components Khác Trong Hệ Thống:</h5>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    @await Component.InvokeAsync("CategoryMenu")
+                </div>
+                <div class="col-md-8 mb-3">
+                    @await Component.InvokeAsync("ProductHot", new { limit = 3 })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        console.log("-> Mã JS được nhúng thông qua @@section Scripts trong View (Slide 18)");
+
+        $(document).ready(function () {
+            // Slide 21: Gọi Ajax tải PartialView từ Action GetProductHot
+            $("#btnLoadHotProducts").click(function () {
+                $("#hotProductsContainer").html('<div class="d-flex align-items-center gap-2"><div class="spinner-border spinner-border-sm text-danger" role="status"></div> <span>Đang tải dữ liệu sản phẩm HOT từ Server...</span></div>');
+
+                $.ajax({
+                    url: '/Home/GetProductHot',
+                    type: 'GET',
+                    success: function (data) {
+                        $("#hotProductsContainer").html(data);
+                    },
+                    error: function () {
+                        $("#hotProductsContainer").html('<div class="alert alert-danger">Lỗi khi tải Partial View sản phẩm HOT!</div>');
+                    }
+                });
+            });
+
+            $("#btnClearHotProducts").click(function () {
+                $("#hotProductsContainer").html('<div class="alert alert-info mb-0">Nhấn nút trên để tải Partial View từ Server...</div>');
+            });
+        });
+    </script>
+}

@@ -1,0 +1,53 @@
+@{
+    ViewData["Title"] = "Cú pháp Razor C#";
+
+    var total = 7500;
+}
+
+<div class="container my-4">
+    <h2>Cú pháp Razor</h2>
+    <hr />
+
+    <p class="fs-6 mb-1">Tài khoản của bạn: $ @total</p>
+
+    @if (total >= 5000)
+    {
+        <p class="fs-6 text-secondary mb-4">Bạn nhiều tiền thế</p>
+    }
+
+    <h2>Cấu trúc if</h2>
+    <hr />
+
+    @if (total >= 5000)
+    {
+        <p class="fs-6 text-secondary mb-4">Bạn là người giàu có</p>
+    }
+
+    <h2>Cấu trúc lặp for (....)</h2>
+    <div class="mb-4">
+        @{
+            for (int i = 0; i < 10; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    <span class="btn btn-danger me-1 px-3 fw-bold">@i</span>
+                }
+                else
+                {
+                    <span class="btn btn-success me-1 px-3 fw-bold">@i</span>
+                }
+            }
+        }
+    </div>
+
+    <h2>Mảng</h2>
+    <div class="d-flex align-items-center gap-3 mt-3">
+        @{
+            string[] images = { "icon1.svg", "icon2.svg", "icon3.svg", "icon4.svg", "icon5.svg" };
+            foreach (var img in images)
+            {
+                <img src="~/images/@img" width="80" height="80" alt="@img" />
+            }
+        }
+    </div>
+</div>

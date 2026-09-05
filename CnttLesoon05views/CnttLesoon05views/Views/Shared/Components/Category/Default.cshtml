@@ -1,0 +1,17 @@
+@* Slide 25: Razor View cho Category ViewComponent đặt tại Views/Shared/Components/Category/Default.cshtml *@
+@model IEnumerable<CnttLesoon05views.Models.Category>
+
+<div class="bg-danger text-white p-3 rounded mb-3 shadow-sm" style="margin-top:10px;">
+    <h6 class="fw-bold border-bottom pb-2 mb-2">📌 Category ViewComponent</h6>
+    @if (Model != null && Model.Any())
+    {
+        @foreach (var c in Model)
+        {
+            <p class="mb-1 fw-bold">✓ @c.CategoryName <span class="badge bg-light text-dark ms-1">ID: @c.CategoryId</span></p>
+        }
+    }
+    else
+    {
+        <p class="mb-0">Không có danh mục phù hợp.</p>
+    }
+</div>
