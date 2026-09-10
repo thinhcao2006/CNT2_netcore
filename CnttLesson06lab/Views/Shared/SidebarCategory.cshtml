@@ -1,0 +1,143 @@
+@* Partial View: Danh mục sản phẩm (sidebar bên trái) *@
+@* Load từ Partial View: <partial name="SidebarCategory" /> *@
+
+@{
+    var currentGenreId = Context.Request.Query["genreId"].ToString();
+    var currentAuthorId = Context.Request.Query["authorId"].ToString();
+    bool isGenreOpen = !string.IsNullOrEmpty(currentGenreId);
+    bool isAuthorOpen = !string.IsNullOrEmpty(currentAuthorId);
+}
+
+<div class="sidebar-wrapper d-flex flex-column gap-3">
+
+    @* Nút 1: Danh mục sản phẩm - click để mở/đóng *@
+    <div class="sidebar-menu-card">
+        <div class="sidebar-title-btn @(isGenreOpen ? "open" : "")" 
+             onclick="toggleSidebarMenu('menuGenre', this)" 
+             id="btnMenuGenre">
+            <div class="d-flex align-items-center gap-2">
+                <div class="menu-icon-pill bg-primary text-white">
+                    <i class="bi bi-grid-fill"></i>
+                </div>
+                <span class="menu-title-text">Danh mục sản phẩm</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+                <span class="badge rounded-pill bg-primary bg-opacity-10 text-primary">5</span>
+                <i class="bi bi-chevron-down toggle-icon"></i>
+            </div>
+        </div>
+        <ul class="sidebar-list" id="menuGenre" style="display: @(isGenreOpen ? "block" : "none");">
+            <li class="sidebar-item">
+                <a asp-controller="Book" asp-action="Index" 
+                   class="@(string.IsNullOrEmpty(currentGenreId) && string.IsNullOrEmpty(currentAuthorId) && ViewContext.RouteData.Values["controller"]?.ToString() == "Book" ? "active" : "")">
+                    <i class="bi bi-collection-fill me-2 text-secondary"></i>Tất cả sản phẩm
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a asp-controller="Book" asp-action="Index" asp-route-genreId="1" 
+                   class="@(currentGenreId == "1" ? "active" : "")">
+                    <i class="bi bi-journal-bookmark-fill me-2 text-warning"></i>Truyện tranh
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a asp-controller="Book" asp-action="Index" asp-route-genreId="2" 
+                   class="@(currentGenreId == "2" ? "active" : "")">
+                    <i class="bi bi-book-half me-2 text-info"></i>Văn học đương đại
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a asp-controller="Book" asp-action="Index" asp-route-genreId="3" 
+                   class="@(currentGenreId == "3" ? "active" : "")">
+                    <i class="bi bi-flower1 me-2 text-success"></i>Phật học phổ thông
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a asp-controller="Book" asp-action="Index" asp-route-genreId="4" 
+                   class="@(currentGenreId == "4" ? "active" : "")">
+                    <i class="bi bi-journal-text me-2 text-danger"></i>Truyện cười
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    @* Nút 2: Tác giả - click để mở/đóng *@
+    <div class="sidebar-menu-card">
+        <div class="sidebar-title-btn @(isAuthorOpen ? "open" : "")" 
+             onclick="toggleSidebarMenu('menuAuthor', this)" 
+             id="btnMenuAuthor">
+            <div class="d-flex align-items-center gap-2">
+                <div class="menu-icon-pill bg-success text-white">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <span class="menu-title-text">Tác giả</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+                <span class="badge rounded-pill bg-success bg-opacity-10 text-success">4</span>
+                <i class="bi bi-chevron-down toggle-icon"></i>
+            </div>
+        </div>
+        <ul class="sidebar-list" id="menuAuthor" style="display: @(isAuthorOpen ? "block" : "none");">
+            <li class="sidebar-item">
+                <a asp-controller="Book" asp-action="Index" asp-route-authorId="1" 
+                   class="@(currentAuthorId == "1" ? "active" : "")">
+                    <i class="bi bi-person-badge me-2 text-primary"></i>Nam Cao
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a asp-controller="Book" asp-action="Index" asp-route-authorId="2" 
+                   class="@(currentAuthorId == "2" ? "active" : "")">
+                    <i class="bi bi-person-badge me-2 text-info"></i>Ngô Tất Tố
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a asp-controller="Book" asp-action="Index" asp-route-authorId="3" 
+                   class="@(currentAuthorId == "3" ? "active" : "")">
+                    <i class="bi bi-person-badge me-2 text-warning"></i>Adamkhoon
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a asp-controller="Book" asp-action="Index" asp-route-authorId="4" 
+                   class="@(currentAuthorId == "4" ? "active" : "")">
+                    <i class="bi bi-person-badge me-2 text-danger"></i>Thích Nhất Hạnh
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+<script>
+    function toggleSidebarMenu(menuId, headerEl) {
+        var menu = document.getElementById(menuId);
+        var isOpen = menu.style.display !== 'none';
+        
+        if (isOpen) {
+            menu.style.display = 'none';
+            headerEl.classList.remove('open');
+            sessionStorage.setItem(menuId + '_state', 'closed');
+        } else {
+            menu.style.display = 'block';
+            headerEl.classList.add('open');
+            sessionStorage.setItem(menuId + '_state', 'open');
+        }
+    }
+
+    // Restore previously opened state if saved
+    document.addEventListener('DOMContentLoaded', function () {
+        ['menuGenre', 'menuAuthor'].forEach(function(id) {
+            var menu = document.getElementById(id);
+            var header = menu.previousElementSibling;
+            var savedState = sessionStorage.getItem(id + '_state');
+            
+            // If already open by query param, keep open
+            if (menu.style.display === 'block') {
+                if (header) header.classList.add('open');
+                return;
+            }
+            if (savedState === 'open') {
+                menu.style.display = 'block';
+                if (header) header.classList.add('open');
+            }
+        });
+    });
+</script>

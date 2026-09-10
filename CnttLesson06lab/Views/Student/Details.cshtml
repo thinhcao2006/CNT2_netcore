@@ -1,0 +1,133 @@
+@model CnttLesson06lab.Models.Student
+@{
+    ViewData["Title"] = "Chi tiết Sinh viên - " + Model.FullName;
+}
+
+<div class="page-header">
+    <h1 class="page-title">
+        <i class="bi bi-person-circle me-2 text-info"></i>Chi tiết Sinh viên
+    </h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Student" asp-action="Index">Danh sách sinh viên</a></li>
+            <li class="breadcrumb-item active">@Model.FullName</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow-sm">
+            <div class="card-header bg-info text-white py-3 d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="bi bi-person-vcard me-2"></i>Thông tin sinh viên</h5>
+                <span class="badge bg-white text-info fs-6">Mã SV: #@Model.StudentId</span>
+            </div>
+            <div class="card-body p-4">
+
+                <div class="row align-items-center mb-4">
+                    <div class="col-auto">
+                        <div class="rounded-circle d-flex align-items-center justify-content-center bg-primary text-white"
+                             style="width:80px;height:80px;font-size:2rem;font-weight:bold;">
+                            @Model.FullName[0]
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h3 class="mb-1">@Model.FullName</h3>
+                        <div class="d-flex gap-2 flex-wrap">
+                            <span class="badge bg-secondary">@Model.ClassName</span>
+                            @if (Model.Gender == "Nam")
+                            {
+                                <span class="badge bg-primary bg-opacity-10 text-primary border border-primary">
+                                    <i class="bi bi-gender-male me-1"></i>Nam
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger bg-opacity-10 text-danger border border-danger">
+                                    <i class="bi bi-gender-female me-1"></i>Nữ
+                                </span>
+                            }
+                            @{
+                                string badgeClass = Model.GPA >= 3.6 ? "bg-success" :
+                                                    Model.GPA >= 3.2 ? "bg-primary" :
+                                                    Model.GPA >= 2.5 ? "bg-info text-dark" :
+                                                    Model.GPA >= 2.0 ? "bg-warning text-dark" : "bg-danger";
+                            }
+                            <span class="badge @badgeClass">GPA @Model.GPA.ToString("F1") - @Model.GpaRank</span>
+                        </div>
+                    </div>
+                </div>
+
+                <hr />
+
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="text-primary fs-4"><i class="bi bi-calendar-date"></i></div>
+                            <div>
+                                <div class="text-muted small">Ngày sinh</div>
+                                <div class="fw-semibold">@Model.DateOfBirth.ToString("dd/MM/yyyy")</div>
+                                <div class="text-muted small">(@Model.Age tuổi)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="text-primary fs-4"><i class="bi bi-envelope"></i></div>
+                            <div>
+                                <div class="text-muted small">Email</div>
+                                <div class="fw-semibold">
+                                    <a href="mailto:@Model.Email" class="text-decoration-none">@Model.Email</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="text-primary fs-4"><i class="bi bi-telephone"></i></div>
+                            <div>
+                                <div class="text-muted small">Số điện thoại</div>
+                                <div class="fw-semibold">@Model.Phone</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="text-primary fs-4"><i class="bi bi-building"></i></div>
+                            <div>
+                                <div class="text-muted small">Lớp học</div>
+                                <div class="fw-semibold">@Model.ClassName</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="text-primary fs-4"><i class="bi bi-award"></i></div>
+                            <div>
+                                <div class="text-muted small">Điểm GPA</div>
+                                <div class="fw-semibold">
+                                    @Model.GPA.ToString("F2") / 4.00
+                                    <span class="badge @badgeClass ms-2">@Model.GpaRank</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-4" />
+
+                <div class="d-flex gap-2 justify-content-end">
+                    <a asp-action="Index" class="btn btn-outline-secondary">
+                        <i class="bi bi-arrow-left me-1"></i>Danh sách
+                    </a>
+                    <a asp-action="Edit" asp-route-id="@Model.StudentId" class="btn btn-warning">
+                        <i class="bi bi-pencil me-1"></i>Sửa
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@Model.StudentId" class="btn btn-danger">
+                        <i class="bi bi-trash me-1"></i>Xóa
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

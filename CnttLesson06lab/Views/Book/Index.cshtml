@@ -1,0 +1,72 @@
+@model IEnumerable<CnttLesson06lab.Models.Book>
+
+@{
+    ViewData["Title"] = "Danh sách Sách";
+    Layout = "my_layout";
+    int? currentGenre = ViewBag.GenreId as int?;
+    int? currentAuthor = ViewBag.AuthorId as int?;
+}
+
+<div class="section-block">
+    <div class="section-header">
+        <i class="bi bi-book-fill"></i>
+        @if (currentGenre.HasValue)
+        {
+            var genreName = ((List<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem>)ViewBag.genres)
+                .FirstOrDefault(g => g.Value == currentGenre.ToString())?.Text ?? "Sản phẩm";
+            <span>Thể loại: @genreName</span>
+        }
+        else if (currentAuthor.HasValue)
+        {
+            var authorName = ((List<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem>)ViewBag.authors)
+                .FirstOrDefault(a => a.Value == currentAuthor.ToString())?.Text ?? "Tác giả";
+            <span>Tác giả: @authorName</span>
+        }
+        else
+        {
+            <span>Tất cả sản phẩm</span>
+        }
+        <span class="badge-source badge-view-action">@Model.Count() sản phẩm</span>
+    </div>
+    <div class="section-body">
+        @if (!Model.Any())
+        {
+            <div class="text-center py-4">
+                <i class="bi bi-inbox" style="font-size:48px; color:#ccc;"></i>
+                <p class="text-muted mt-2">Không tìm thấy sản phẩm nào trong danh mục này.</p>
+                <a asp-action="Index" class="btn btn-sm btn-outline-primary">
+                    <i class="bi bi-arrow-left me-1"></i>Xem tất cả
+                </a>
+            </div>
+        }
+        else
+        {
+            <div class="product-grid">
+                @foreach (var book in Model)
+                {
+                    <div class="product-card">
+                        <div class="img-wrap">
+                            <img src="@book.Image" alt="@book.Title" />
+                        </div>
+                        <div class="card-info">
+                            <p class="card-title">@book.Title</p>
+                            <p class="card-price">@book.Price.ToString("N0") đ</p>
+                            <div style="margin-top:6px;">
+                                <a asp-action="Edit" asp-route-id="@book.Id"
+                                   class="btn btn-sm btn-outline-warning" style="font-size:11px;">
+                                    <i class="bi bi-pencil"></i> Sửa
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+
+        <div style="margin-top:14px; text-align:right;">
+            <a asp-action="Create" class="btn btn-sm btn-success">
+                <i class="bi bi-plus-circle me-1"></i>Thêm sách mới
+            </a>
+        </div>
+    </div>
+</div>

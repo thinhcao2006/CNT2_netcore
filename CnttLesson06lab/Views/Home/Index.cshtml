@@ -1,0 +1,68 @@
+@model IEnumerable<CnttLesson06lab.Models.Book>
+
+@{
+    Layout = "my_layout";
+    ViewData["Title"] = "Trang chủ";
+}
+
+@* ============================================================
+   PHẦN 1: Sản phẩm mới nhất - Load từ View Action (HomeController.Index)
+   ============================================================ *@
+<div class="section-block">
+    <div class="section-header">
+        <i class="bi bi-stars"></i>
+        Sản phẩm mới nhất
+        <span class="badge-source badge-view-action">Load từ View Action</span>
+    </div>
+    <div class="section-body">
+        <div class="product-grid">
+            @foreach (var book in Model.Take(3))
+            {
+                <div class="product-card">
+                    <div class="img-wrap">
+                        <img src="@book.Image" alt="@book.Title" />
+                    </div>
+                    <div class="card-info">
+                        <p class="card-title">@book.Title</p>
+                        <p class="card-price">@book.Price.ToString("N0") đ</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@* ============================================================
+   PHẦN 2: Banner - Load từ Partial View
+   ============================================================ *@
+<div class="section-block">
+    <div class="section-header">
+        <i class="bi bi-image"></i>
+        Banner quảng cáo
+        <span class="badge-source badge-partial">Load từ Partial View</span>
+    </div>
+    <div class="section-body p-0">
+        <partial name="Banner" />
+    </div>
+</div>
+
+@* ============================================================
+   PHẦN 3: Sản phẩm nổi bật - Load từ ViewComponent (BookViewComponent)
+   ============================================================ *@
+<div class="section-block">
+    <div class="section-header">
+        <i class="bi bi-fire"></i>
+        Sản phẩm nổi bật
+        <span class="badge-source badge-component">Load từ Component</span>
+    </div>
+    <div class="section-body">
+        @await Component.InvokeAsync("Book")
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Bài 3: Nút Ajax load Partial View (demo thêm)
+        // Đã được minh họa bằng banner ở trên
+    </script>
+}

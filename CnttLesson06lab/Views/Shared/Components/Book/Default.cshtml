@@ -1,0 +1,19 @@
+@model IEnumerable<CnttLesson06lab.Models.Book>
+
+@* ViewComponent Default View: Views/Shared/Components/Book/Default.cshtml *@
+@* Được gọi bằng: @await Component.InvokeAsync("Book") *@
+
+<div class="product-grid">
+    @foreach (var item in Model)
+    {
+        <div class="product-card">
+            <div class="img-wrap">
+                <img src="@item.Image" alt="@item.Title" />
+            </div>
+            <div class="card-info">
+                <p class="card-title">@item.Title</p>
+                <p class="card-price">@item.Price.ToString("N0") đ</p>
+            </div>
+        </div>
+    }
+</div>

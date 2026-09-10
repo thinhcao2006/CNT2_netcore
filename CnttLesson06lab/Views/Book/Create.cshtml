@@ -1,0 +1,88 @@
+@model CnttLesson06lab.Models.Book
+
+@{
+    ViewData["Title"] = "Thêm mới Sách";
+    Layout = "my_layout";
+}
+
+<div class="page-header">
+    <h1 class="page-title">
+        <i class="bi bi-book me-2 text-success"></i>Thêm mới Sách
+    </h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Book" asp-action="Index">Danh sách sách</a></li>
+            <li class="breadcrumb-item active">Thêm mới</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow-sm">
+            <div class="card-header bg-success text-white py-3">
+                <h5 class="mb-0"><i class="bi bi-book-half me-2"></i>Thông tin sách</h5>
+            </div>
+            <div class="card-body p-4">
+                <form action="" method="POST" enctype="multipart/form-data">
+
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <label asp-for="Title" class="form-label fw-semibold">Tên sách</label>
+                            <input type="text" class="form-control" asp-for="Title" placeholder="Nhập tên sách" />
+                        </div>
+
+                        <div class="col-md-6">
+                            <label asp-for="AuthorId" class="form-label fw-semibold">Tác giả</label>
+                            <select asp-for="AuthorId" class="form-select" asp-items="@ViewBag.authors">
+                                <option value="">-- Chọn tác giả --</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label asp-for="GenreId" class="form-label fw-semibold">Thể loại</label>
+                            <select asp-for="GenreId" class="form-select" asp-items="@ViewBag.genres">
+                                <option value="">-- Chọn thể loại --</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label asp-for="Price" class="form-label fw-semibold">Giá sách (đ)</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-currency-exchange"></i></span>
+                                <input type="number" class="form-control" asp-for="Price" placeholder="Ví dụ: 150000" min="0" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label asp-for="TotalPage" class="form-label fw-semibold">Tổng số trang</label>
+                            <input type="number" class="form-control" asp-for="TotalPage" placeholder="Ví dụ: 350" min="1" />
+                        </div>
+
+                        <div class="col-12">
+                            <label asp-for="Image" class="form-label fw-semibold">Hình ảnh / Poster</label>
+                            <input type="file" class="form-control" asp-for="Image" />
+                        </div>
+
+                        <div class="col-12">
+                            <label asp-for="Sumary" class="form-label fw-semibold">Giới thiệu ngắn</label>
+                            <textarea class="form-control" asp-for="Sumary" rows="4"
+                                      placeholder="Nội dung giới thiệu sách..."></textarea>
+                        </div>
+                    </div>
+
+                    <hr class="my-4" />
+
+                    <div class="d-flex gap-2 justify-content-end">
+                        <a asp-action="Index" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left me-1"></i>Hủy
+                        </a>
+                        <button type="submit" class="btn btn-success px-4">
+                            <i class="bi bi-save me-1"></i>Lưu sách
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
