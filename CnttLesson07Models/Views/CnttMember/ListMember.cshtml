@@ -1,0 +1,46 @@
+@model IEnumerable<CnttLesson07Models.Models.CnttMember>
+
+@{
+    ViewData["Title"] = "Danh sách thành viên";
+}
+
+<div class="container mt-4">
+    <h2>Danh sách thành viên</h2>
+
+    <p class="mt-3">
+        <a asp-action="Create" class="btn btn-primary">Thêm mới</a>
+    </p>
+
+    <table class="table table-bordered table-striped mt-3">
+        <thead>
+            <tr>
+                <th>CnttMemberId</th>
+                <th>CnttUserName</th>
+                <th>CnttPassword</th>
+                <th>CnttFullName</th>
+                <th>CnttEmail</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.CnttMemberId</td>
+                        <td>@item.CnttUserName</td>
+                        <td>@item.CnttPassword</td>
+                        <td>@item.CnttFullName</td>
+                        <td>@item.CnttEmail</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.CnttMemberId">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.CnttMemberId">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.CnttMemberId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

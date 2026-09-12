@@ -1,0 +1,40 @@
+@model CnttLesson07Models.Models.CnttMember
+
+@{
+    ViewData["Title"] = "Thêm mới";
+}
+
+<div class="container mt-4">
+    <h2>Thêm mới thành viên</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="Create" method="post">
+                <div class="mb-3">
+                    <label asp-for="CnttMemberId" class="form-label">CnttMemberId</label>
+                    <input asp-for="CnttMemberId" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="CnttUserName" class="form-label">CnttUserName</label>
+                    <input asp-for="CnttUserName" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="CnttPassword" class="form-label">CnttPassword</label>
+                    <input asp-for="CnttPassword" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="CnttFullName" class="form-label">CnttFullName</label>
+                    <input asp-for="CnttFullName" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="CnttEmail" class="form-label">CnttEmail</label>
+                    <input asp-for="CnttEmail" type="email" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Ghi lại</button>
+                    <a asp-action="ListMember" class="btn btn-secondary ms-2">Quay lại</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

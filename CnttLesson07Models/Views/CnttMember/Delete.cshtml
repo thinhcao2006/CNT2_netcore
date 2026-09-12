@@ -1,0 +1,33 @@
+@model CnttLesson07Models.Models.CnttMember
+
+@{
+    ViewData["Title"] = "Xóa";
+}
+
+<div class="container mt-4">
+    <h2>Xóa thành viên</h2>
+    <h4>Bạn có chắc chắn muốn xóa thành viên này?</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">CnttMemberId</dt>
+        <dd class="col-sm-9">@Model.CnttMemberId</dd>
+
+        <dt class="col-sm-3">CnttUserName</dt>
+        <dd class="col-sm-9">@Model.CnttUserName</dd>
+
+        <dt class="col-sm-3">CnttPassword</dt>
+        <dd class="col-sm-9">@Model.CnttPassword</dd>
+
+        <dt class="col-sm-3">CnttFullName</dt>
+        <dd class="col-sm-9">@Model.CnttFullName</dd>
+
+        <dt class="col-sm-3">CnttEmail</dt>
+        <dd class="col-sm-9">@Model.CnttEmail</dd>
+    </dl>
+    
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="CnttMemberId" />
+        <button type="submit" class="btn btn-danger">Xóa</button>
+        <a asp-action="ListMember" class="btn btn-secondary ms-2">Quay lại danh sách</a>
+    </form>
+</div>

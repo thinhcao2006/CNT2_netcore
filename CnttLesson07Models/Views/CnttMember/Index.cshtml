@@ -1,0 +1,29 @@
+@model CnttLesson07Models.Models.CnttMember
+
+@{
+    ViewData["Title"] = "Member";
+}
+
+<div class="container mt-4">
+    <h2>Thông tin thành viên (Member)</h2>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">CnttMemberId</dt>
+        <dd class="col-sm-9">@Model?.CnttMemberId</dd>
+
+        <dt class="col-sm-3">CnttUserName</dt>
+        <dd class="col-sm-9">@Model?.CnttUserName</dd>
+
+        <dt class="col-sm-3">CnttPassword</dt>
+        <dd class="col-sm-9">@Model?.CnttPassword</dd>
+
+        <dt class="col-sm-3">CnttFullName</dt>
+        <dd class="col-sm-9">@Model?.CnttFullName</dd>
+
+        <dt class="col-sm-3">CnttEmail</dt>
+        <dd class="col-sm-9">@Model?.CnttEmail</dd>
+    </dl>
+    <div>
+        <a asp-action="ListMember" class="btn btn-primary">Xem danh sách thành viên</a>
+    </div>
+</div>
