@@ -1,0 +1,50 @@
+@model CnttLesson08Lab.Models.CnttSanPham
+
+@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-header bg-info text-white">
+                <h4 class="mb-0"><i class="bi bi-box-seam"></i> Chi tiết sản phẩm #@Model.MaSP</h4>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-4">Mã sản phẩm</dt>
+                    <dd class="col-sm-8">@Model.MaSP</dd>
+
+                    <dt class="col-sm-4">Tên sản phẩm</dt>
+                    <dd class="col-sm-8"><strong>@Model.TenSP</strong></dd>
+
+                    <dt class="col-sm-4">Loại sản phẩm</dt>
+                    <dd class="col-sm-8"><span class="badge bg-info">@Model.LoaiSP</span></dd>
+
+                    <dt class="col-sm-4">Đơn giá</dt>
+                    <dd class="col-sm-8 text-success fw-bold">@Model.DonGia.ToString("N0") VNĐ</dd>
+
+                    <dt class="col-sm-4">Số lượng</dt>
+                    <dd class="col-sm-8">@Model.SoLuong</dd>
+
+                    <dt class="col-sm-4">Thành tiền</dt>
+                    <dd class="col-sm-8 text-danger fw-bold fs-5">@Model.ThanhTien.ToString("N0") VNĐ</dd>
+
+                    <dt class="col-sm-4">Ngày nhập</dt>
+                    <dd class="col-sm-8">@Model.NgayNhap.ToString("dd/MM/yyyy")</dd>
+
+                    <dt class="col-sm-4">Mô tả</dt>
+                    <dd class="col-sm-8">@(Model.MoTa ?? "—")</dd>
+                </dl>
+            </div>
+            <div class="card-footer d-flex gap-2">
+                <a asp-action="Edit" asp-route-id="@Model.MaSP" class="btn btn-warning">
+                    <i class="bi bi-pencil"></i> Sửa
+                </a>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left"></i> Quay lại
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

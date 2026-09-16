@@ -1,0 +1,91 @@
+@model IEnumerable<CnttLesson08Lab.Models.CnttSinhVien>
+
+@{
+    ViewData["Title"] = "Danh sách sinh viên";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2><i class="bi bi-people"></i> @ViewData["Title"]</h2>
+    <a asp-action="Create" class="btn btn-success">
+        <i class="bi bi-person-plus"></i> Thêm sinh viên mới
+    </a>
+</div>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-check-circle"></i> @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="table-primary">
+            <tr>
+                <th>Mã SV</th>
+                <th>Họ tên</th>
+                <th>Email</th>
+                <th>Lớp</th>
+                <th>Ngành</th>
+                <th class="text-center">Điểm TB</th>
+                <th class="text-center">Xếp loại</th>
+                <th class="text-center">Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (!Model.Any())
+            {
+                <tr>
+                    <td colspan="8" class="text-center text-muted py-4">
+                        <i class="bi bi-inbox"></i> Chưa có sinh viên nào
+                    </td>
+                </tr>
+            }
+            @foreach (var sv in Model)
+            {
+                <tr>
+                    <td>@sv.MaSV</td>
+                    <td><strong>@sv.HoTen</strong></td>
+                    <td>@sv.Email</td>
+                    <td>@sv.Lop</td>
+                    <td>@sv.Nganh</td>
+                    <td class="text-center">@sv.DiemTB.ToString("F1")</td>
+                    <td class="text-center">
+                        @{
+                            string badgeClass = sv.XepLoai switch
+                            {
+                                "Xuất sắc" => "bg-success",
+                                "Giỏi" => "bg-primary",
+                                "Khá" => "bg-info",
+                                "Trung bình" => "bg-warning text-dark",
+                                _ => "bg-danger"
+                            };
+                        }
+                        <span class="badge @badgeClass">@sv.XepLoai</span>
+                    </td>
+                    <td class="text-center">
+                        <a asp-action="Details" asp-route-id="@sv.MaSV" class="btn btn-sm btn-outline-info" title="Chi tiết">
+                            <i class="bi bi-eye"></i>
+                        </a>
+                        <a asp-action="Edit" asp-route-id="@sv.MaSV" class="btn btn-sm btn-outline-warning" title="Sửa">
+                            <i class="bi bi-pencil"></i>
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@sv.MaSV" class="btn btn-sm btn-outline-danger" title="Xóa">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        @if (Model.Any())
+        {
+            <tfoot class="table-secondary">
+                <tr>
+                    <td colspan="5" class="text-end fw-bold">Tổng số sinh viên:</td>
+                    <td colspan="3" class="fw-bold">@Model.Count() sinh viên | Điểm TB: @Model.Average(x => x.DiemTB).ToString("F2")</td>
+                </tr>
+            </tfoot>
+        }
+    </table>
+</div>
