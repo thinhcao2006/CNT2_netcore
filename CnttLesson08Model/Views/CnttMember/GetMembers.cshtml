@@ -1,0 +1,71 @@
+@model IEnumerable<CnttLesson08Model.Models.CnttDataModels.CnttMember>
+
+@{
+    ViewData["Title"] = "Danh sách sinh viên (GetMembers)";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm border p-4 bg-white rounded-2">
+        <h1 class="display-6 fw-normal mb-2 text-dark">Danh sách thành viên</h1>
+        <p class="mb-3">
+            <a asp-action="Create" class="text-primary text-decoration-none fw-medium">Thêm mới</a>
+        </p>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col" class="fw-bold">Mã sinh viên</th>
+                        <th scope="col" class="fw-bold">Username</th>
+                        <th scope="col" class="fw-bold">Họ và tên</th>
+                        <th scope="col" class="fw-bold">Password</th>
+                        <th scope="col" class="fw-bold">Email</th>
+                        <th scope="col" class="text-center" style="width: 220px;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.CnttMemberId</td>
+                                <td>@item.CnttUserName</td>
+                                <td>@item.CnttFullName</td>
+                                <td>@item.CnttPassword</td>
+                                <td>@item.CnttEmail</td>
+                                <td class="text-center">
+                                    <a asp-action="Edit" asp-route-id="@item.CnttMemberId" class="text-primary text-decoration-none">Sửa</a>
+                                    <span class="text-muted mx-1">|</span>
+                                    <a asp-action="Details" asp-route-id="@item.CnttMemberId" class="text-primary text-decoration-none">Xem chi tiết</a>
+                                    <span class="text-muted mx-1">|</span>
+                                    <a asp-action="Delete" asp-route-id="@item.CnttMemberId" class="text-primary text-decoration-none">Xóa</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else if (ViewBag.members != null)
+                    {
+                        foreach (var item in (IEnumerable<dynamic>)ViewBag.members)
+                        {
+                            <tr>
+                                <td>@item.MemberId</td>
+                                <td>@item.Username</td>
+                                <td>@item.Fullname</td>
+                                <td>@item.Password</td>
+                                <td>@item.Email</td>
+                                <td class="text-center">
+                                    <a asp-action="Edit" asp-route-id="@item.MemberId" class="text-primary text-decoration-none">Sửa</a>
+                                    <span class="text-muted mx-1">|</span>
+                                    <a asp-action="Details" asp-route-id="@item.MemberId" class="text-primary text-decoration-none">Xem chi tiết</a>
+                                    <span class="text-muted mx-1">|</span>
+                                    <a asp-action="Delete" asp-route-id="@item.MemberId" class="text-primary text-decoration-none">Xóa</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

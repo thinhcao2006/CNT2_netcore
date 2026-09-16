@@ -1,0 +1,41 @@
+@model CnttLesson08Model.Models.CnttDataModels.CnttMember
+
+@{
+    ViewData["Title"] = "Xác nhận xóa thành viên";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm border p-4 bg-white rounded-2">
+        <h1 class="display-6 fw-normal mb-2 text-danger">Xóa thành viên</h1>
+        <p class="text-muted">Bạn có chắc chắn muốn xóa thành viên này không?</p>
+        <hr />
+        
+        <div class="row">
+            <div class="col-md-8">
+                <dl class="row mb-4">
+                    <dt class="col-sm-3 text-secondary">Mã thành viên:</dt>
+                    <dd class="col-sm-9 fw-medium text-dark">@Model?.CnttMemberId</dd>
+
+                    <dt class="col-sm-3 text-secondary">Tên đăng nhập:</dt>
+                    <dd class="col-sm-9 text-dark">@Model?.CnttUserName</dd>
+
+                    <dt class="col-sm-3 text-secondary">Họ và tên:</dt>
+                    <dd class="col-sm-9 text-dark">@Model?.CnttFullName</dd>
+
+                    <dt class="col-sm-3 text-secondary">Mật khẩu:</dt>
+                    <dd class="col-sm-9 text-dark">@Model?.CnttPassword</dd>
+
+                    <dt class="col-sm-3 text-secondary">Email:</dt>
+                    <dd class="col-sm-9 text-dark">@Model?.CnttEmail</dd>
+                </dl>
+
+                <form asp-action="Delete" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@Model?.CnttMemberId" />
+                    <input type="submit" value="Xóa" class="btn btn-danger me-2 px-4" />
+                    <a asp-action="Index" class="btn btn-outline-secondary">Hủy bỏ</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+@model CnttLesson08Model.Models.CnttDataModels.CnttMember
+
+@{
+    ViewData["Title"] = "Thêm mới thành viên";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm border p-4 bg-white rounded-2">
+        <h1 class="display-6 fw-normal mb-2 text-dark">Thêm mới thành viên</h1>
+        <hr />
+        <div class="row">
+            <div class="col-md-5">
+                <form asp-action="Create" method="post">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="CnttMemberId" class="form-label fw-medium">Mã thành viên</label>
+                        <input asp-for="CnttMemberId" class="form-control bg-light" readonly />
+                        <span asp-validation-for="CnttMemberId" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="CnttUserName" class="form-label fw-medium">Tên đăng nhập</label>
+                        <input asp-for="CnttUserName" class="form-control" placeholder="Nhập username..." />
+                        <span asp-validation-for="CnttUserName" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="CnttFullName" class="form-label fw-medium">Họ và tên</label>
+                        <input asp-for="CnttFullName" class="form-control" placeholder="Nhập họ và tên..." />
+                        <span asp-validation-for="CnttFullName" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="CnttPassword" class="form-label fw-medium">Mật khẩu</label>
+                        <input asp-for="CnttPassword" type="password" class="form-control" placeholder="Nhập mật khẩu..." />
+                        <span asp-validation-for="CnttPassword" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="CnttEmail" class="form-label fw-medium">Email</label>
+                        <input asp-for="CnttEmail" type="email" class="form-control" placeholder="example@email.com" />
+                        <span asp-validation-for="CnttEmail" class="text-danger"></span>
+                    </div>
+
+                    <div class="mt-4">
+                        <input type="submit" value="Lưu" class="btn btn-primary px-4 me-2" />
+                        <a asp-action="Index" class="btn btn-outline-secondary">Quay lại danh sách</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
