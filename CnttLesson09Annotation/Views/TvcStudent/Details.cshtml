@@ -1,0 +1,36 @@
+@model CnttLesson09Annotation.Models.TvcStudent
+
+@{
+    ViewData["Title"] = "Chi tiết sinh viên";
+}
+
+<h1>Chi tiết sinh viên</h1>
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-3">Mã sinh viên</dt>
+    <dd class="col-sm-9">@Model.TvcStudentCode</dd>
+
+    <dt class="col-sm-3">Họ và tên</dt>
+    <dd class="col-sm-9">@Model.TvcFullName</dd>
+
+    <dt class="col-sm-3">Email</dt>
+    <dd class="col-sm-9">@Model.TvcEmail</dd>
+
+    <dt class="col-sm-3">Số điện thoại</dt>
+    <dd class="col-sm-9">@Model.TvcPhone</dd>
+
+    <dt class="col-sm-3">Ngành học</dt>
+    <dd class="col-sm-9">@Model.TvcMajor</dd>
+
+    <dt class="col-sm-3">Năm học</dt>
+    <dd class="col-sm-9">Năm @Model.TvcYear</dd>
+
+    <dt class="col-sm-3">Ngày sinh</dt>
+    <dd class="col-sm-9">@Model.TvcBirthday.ToString("dd/MM/yyyy")</dd>
+</dl>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.TvcStudentId" class="btn btn-warning">Sửa</a>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Quay lại danh sách</a>
+</div>

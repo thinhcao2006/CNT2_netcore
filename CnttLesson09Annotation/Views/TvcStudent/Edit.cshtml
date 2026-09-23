@@ -1,0 +1,69 @@
+@model CnttLesson09Annotation.Models.TvcStudent
+
+@{
+    ViewData["Title"] = "Sửa thông tin sinh viên";
+}
+
+<h1>Sửa thông tin sinh viên</h1>
+<h4>TvcStudent</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TvcStudentId" />
+
+            <div class="form-group mb-3">
+                <label asp-for="TvcStudentCode" class="control-label"></label>
+                <input asp-for="TvcStudentCode" class="form-control" />
+                <span asp-validation-for="TvcStudentCode" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="TvcFullName" class="control-label"></label>
+                <input asp-for="TvcFullName" class="form-control" />
+                <span asp-validation-for="TvcFullName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="TvcEmail" class="control-label"></label>
+                <input asp-for="TvcEmail" class="form-control" />
+                <span asp-validation-for="TvcEmail" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="TvcPhone" class="control-label"></label>
+                <input asp-for="TvcPhone" class="form-control" />
+                <span asp-validation-for="TvcPhone" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="TvcMajor" class="control-label"></label>
+                <input asp-for="TvcMajor" class="form-control" />
+                <span asp-validation-for="TvcMajor" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="TvcBirthday" class="control-label"></label>
+                <input asp-for="TvcBirthday" class="form-control" />
+                <span asp-validation-for="TvcBirthday" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="TvcYear" class="control-label"></label>
+                <input asp-for="TvcYear" class="form-control" type="number" min="1" max="5" />
+                <span asp-validation-for="TvcYear" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Lưu thay đổi" class="btn btn-warning" />
+                <a asp-action="Index" class="ms-2">Quay lại danh sách</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

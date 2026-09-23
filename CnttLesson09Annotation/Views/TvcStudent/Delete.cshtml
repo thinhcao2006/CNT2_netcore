@@ -1,0 +1,29 @@
+@model CnttLesson09Annotation.Models.TvcStudent
+
+@{
+    ViewData["Title"] = "Xóa sinh viên";
+}
+
+<h1>Xóa sinh viên</h1>
+<h3>Bạn có chắc muốn xóa sinh viên này?</h3>
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-3">Mã sinh viên</dt>
+    <dd class="col-sm-9">@Model.TvcStudentCode</dd>
+
+    <dt class="col-sm-3">Họ và tên</dt>
+    <dd class="col-sm-9">@Model.TvcFullName</dd>
+
+    <dt class="col-sm-3">Email</dt>
+    <dd class="col-sm-9">@Model.TvcEmail</dd>
+
+    <dt class="col-sm-3">Ngành học</dt>
+    <dd class="col-sm-9">@Model.TvcMajor</dd>
+</dl>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="TvcStudentId" />
+    <input type="submit" value="Xác nhận xóa" class="btn btn-danger" />
+    <a asp-action="Index" class="btn btn-secondary ms-2">Hủy</a>
+</form>

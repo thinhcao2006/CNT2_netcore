@@ -1,0 +1,40 @@
+@model CnttLesson09Annotation.Models.TvcMemberRegister
+
+@{
+    ViewData["Title"] = "Chi tiết thành viên";
+}
+
+<h1>Chi tiết thành viên</h1>
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-3">ID</dt>
+    <dd class="col-sm-9">@Model.TvcMemberId</dd>
+
+    <dt class="col-sm-3">Tên đăng nhập</dt>
+    <dd class="col-sm-9">@Model.TvcUserName</dd>
+
+    <dt class="col-sm-3">Họ và tên</dt>
+    <dd class="col-sm-9">@Model.TvcFullName</dd>
+
+    <dt class="col-sm-3">Email</dt>
+    <dd class="col-sm-9">@Model.TvcEmail</dd>
+
+    <dt class="col-sm-3">Số điện thoại</dt>
+    <dd class="col-sm-9">@Model.TvcPhoneNumber</dd>
+
+    <dt class="col-sm-3">Ngày sinh</dt>
+    <dd class="col-sm-9">@Model.TvcBirthday.ToString("dd/MM/yyyy")</dd>
+
+    <dt class="col-sm-3">Vai trò</dt>
+    <dd class="col-sm-9">
+        <span class="badge @(Model.TvcRole == "Admin" ? "bg-danger" : "bg-success")">
+            @Model.TvcRole
+        </span>
+    </dd>
+</dl>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.TvcMemberId" class="btn btn-warning">Sửa</a>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Quay lại danh sách</a>
+</div>

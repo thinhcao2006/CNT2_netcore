@@ -1,0 +1,59 @@
+@model IEnumerable<CnttLesson09Annotation.Models.TvcMemberRegister>
+
+@{
+    ViewData["Title"] = "Danh sách thành viên";
+}
+
+<h1>Danh sách thành viên</h1>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["Success"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">
+        Thêm thành viên mới
+    </a>
+</p>
+
+<table class="table table-striped table-hover table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Tên đăng nhập</th>
+            <th>Họ và tên</th>
+            <th>Email</th>
+            <th>Số điện thoại</th>
+            <th>Ngày sinh</th>
+            <th>Vai trò</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.TvcMemberId</td>
+                <td>@item.TvcUserName</td>
+                <td>@item.TvcFullName</td>
+                <td>@item.TvcEmail</td>
+                <td>@item.TvcPhoneNumber</td>
+                <td>@item.TvcBirthday.ToString("dd/MM/yyyy")</td>
+                <td>
+                    <span class="badge @(item.TvcRole == "Admin" ? "bg-danger" : "bg-success")">
+                        @item.TvcRole
+                    </span>
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.TvcMemberId" class="btn btn-sm btn-info">Chi tiết</a>
+                    <a asp-action="Edit" asp-route-id="@item.TvcMemberId" class="btn btn-sm btn-warning">Sửa</a>
+                    <a asp-action="Delete" asp-route-id="@item.TvcMemberId" class="btn btn-sm btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
