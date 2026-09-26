@@ -1,0 +1,197 @@
+﻿@model IEnumerable<Cntt24109000_exam.Models.CnttEmployee>
+
+@{
+    ViewData["Title"] = "Danh sách nhân viên";
+}
+
+<style>
+    .employee-container {
+        margin-top: 30px;
+    }
+
+    .employee-title {
+        font-size: 30px;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    .btn-create {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: #0d6efd;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        margin-bottom: 20px;
+    }
+
+    .btn-create:hover {
+        background-color: #0b5ed7;
+        color: white;
+    }
+
+    .employee-table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: white;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .employee-table th {
+        background-color: #212529;
+        color: white;
+        padding: 12px;
+        text-align: center;
+    }
+
+    .employee-table td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+    }
+
+    .employee-table tbody tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    .active-yes {
+        display: inline-block;
+        padding: 5px 12px;
+        background-color: #198754;
+        color: white;
+        border-radius: 15px;
+        font-size: 14px;
+    }
+
+    .active-no {
+        display: inline-block;
+        padding: 5px 12px;
+        background-color: #dc3545;
+        color: white;
+        border-radius: 15px;
+        font-size: 14px;
+    }
+
+    .action-link {
+        text-decoration: none;
+        margin: 0 3px;
+    }
+
+    .edit-link {
+        color: #0d6efd;
+    }
+
+    .detail-link {
+        color: #198754;
+    }
+
+    .delete-link {
+        color: #dc3545;
+    }
+</style>
+
+<div class="employee-container">
+
+    <h1 class="employee-title">Danh sách nhân viên</h1>
+
+    <p>
+        <a asp-action="Create" class="btn-create">+ Thêm nhân viên</a>
+    </p>
+
+    <table class="employee-table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CnttName)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.CnttGender)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.CnttBirthDay)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.CnttEmail)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.CnttPhone)
+                </th>
+
+                <th>
+                    Trạng thái
+                </th>
+
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CnttName)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CnttGender)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CnttBirthDay)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CnttEmail)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CnttPhone)
+                    </td>
+
+                    <td>
+                        @if (item.CnttActive == true)
+                        {
+                            <span class="active-yes">Hoạt động</span>
+                        }
+                        else
+                        {
+                            <span class="active-no">Không hoạt động</span>
+                        }
+                    </td>
+
+                    <td>
+                        <a asp-action="Edit"
+                           asp-route-id="@item.Id"
+                           class="action-link edit-link">
+                            Sửa
+                        </a>
+
+                        |
+
+                        <a asp-action="Details"
+                           asp-route-id="@item.Id"
+                           class="action-link detail-link">
+                            Chi tiết
+                        </a>
+
+                        |
+
+                        <a asp-action="Delete"
+                           asp-route-id="@item.Id"
+                           class="action-link delete-link">
+                            Xóa
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\hoctap\\CNT2.NET\\CNT2_netcore\\Cntt24109000_exam\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9BE3E208-2AA2-45BA-A9B2-EC53FBADA5B6}|Cntt24109000_exam.csproj|c:\\hoctap\\cnt2.net\\cnt2_netcore\\cntt24109000_exam\\views\\cnttemployees\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BE3E208-2AA2-45BA-A9B2-EC53FBADA5B6}|Cntt24109000_exam.csproj|solutionrelative:views\\cnttemployees\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BE3E208-2AA2-45BA-A9B2-EC53FBADA5B6}|Cntt24109000_exam.csproj|c:\\hoctap\\cnt2.net\\cnt2_netcore\\cntt24109000_exam\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BE3E208-2AA2-45BA-A9B2-EC53FBADA5B6}|Cntt24109000_exam.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BE3E208-2AA2-45BA-A9B2-EC53FBADA5B6}|Cntt24109000_exam.csproj|c:\\hoctap\\cnt2.net\\cnt2_netcore\\cntt24109000_exam\\controllers\\cnttemployeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BE3E208-2AA2-45BA-A9B2-EC53FBADA5B6}|Cntt24109000_exam.csproj|solutionrelative:controllers\\cnttemployeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BE3E208-2AA2-45BA-A9B2-EC53FBADA5B6}|Cntt24109000_exam.csproj|c:\\hoctap\\cnt2.net\\cnt2_netcore\\cntt24109000_exam\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BE3E208-2AA2-45BA-A9B2-EC53FBADA5B6}|Cntt24109000_exam.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BE3E208-2AA2-45BA-A9B2-EC53FBADA5B6}|Cntt24109000_exam.csproj|c:\\hoctap\\cnt2.net\\cnt2_netcore\\cntt24109000_exam\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9BE3E208-2AA2-45BA-A9B2-EC53FBADA5B6}|Cntt24109000_exam.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BE3E208-2AA2-45BA-A9B2-EC53FBADA5B6}|Cntt24109000_exam.csproj|c:\\hoctap\\cnt2.net\\cnt2_netcore\\cntt24109000_exam\\models\\cnttcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BE3E208-2AA2-45BA-A9B2-EC53FBADA5B6}|Cntt24109000_exam.csproj|solutionrelative:models\\cnttcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\hoctap\\CNT2.NET\\CNT2_netcore\\Cntt24109000_exam\\Views\\CnttEmployees\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\CnttEmployees\\Index.cshtml",
+              "ToolTip": "C:\\hoctap\\CNT2.NET\\CNT2_netcore\\Cntt24109000_exam\\Views\\CnttEmployees\\Index.cshtml",
+              "RelativeToolTip": "Views\\CnttEmployees\\Index.cshtml",
+              "ViewState": "AgIAAJAAAAAAAAAAAAAIwKUAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-26T05:05:55.057Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\hoctap\\CNT2.NET\\CNT2_netcore\\Cntt24109000_exam\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\hoctap\\CNT2.NET\\CNT2_netcore\\Cntt24109000_exam\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-26T04:59:23.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CnttEmployeesController.cs",
+              "DocumentMoniker": "C:\\hoctap\\CNT2.NET\\CNT2_netcore\\Cntt24109000_exam\\Controllers\\CnttEmployeesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CnttEmployeesController.cs",
+              "ToolTip": "C:\\hoctap\\CNT2.NET\\CNT2_netcore\\Cntt24109000_exam\\Controllers\\CnttEmployeesController.cs",
+              "RelativeToolTip": "Controllers\\CnttEmployeesController.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-26T04:56:19.092Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\hoctap\\CNT2.NET\\CNT2_netcore\\Cntt24109000_exam\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\hoctap\\CNT2.NET\\CNT2_netcore\\Cntt24109000_exam\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-26T04:49:22.069Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\hoctap\\CNT2.NET\\CNT2_netcore\\Cntt24109000_exam\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\hoctap\\CNT2.NET\\CNT2_netcore\\Cntt24109000_exam\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-26T04:48:13.296Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CnttContext.cs",
+              "DocumentMoniker": "C:\\hoctap\\CNT2.NET\\CNT2_netcore\\Cntt24109000_exam\\Models\\CnttContext.cs",
+              "RelativeDocumentMoniker": "Models\\CnttContext.cs",
+              "ToolTip": "C:\\hoctap\\CNT2.NET\\CNT2_netcore\\Cntt24109000_exam\\Models\\CnttContext.cs",
+              "RelativeToolTip": "Models\\CnttContext.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBUAAACvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-26T04:46:52.498Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
