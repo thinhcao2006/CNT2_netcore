@@ -1,0 +1,47 @@
+@model CnttLesson12.Models.Mark
+
+@{
+    ViewData["Title"] = "Xóa điểm";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm border-danger">
+            <div class="card-header bg-danger text-white">
+                <h4 class="mb-0"><i class="bi bi-exclamation-triangle"></i> Xác nhận xóa điểm</h4>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-warning">
+                    Bạn có chắc chắn muốn xóa điểm của sinh viên này không? Thao tác này không thể hoàn tác.
+                </div>
+
+                <table class="table table-bordered">
+                    <tr>
+                        <th style="width: 35%;">Sinh viên:</th>
+                        <td>@Model.Student?.StudentName</td>
+                    </tr>
+                    <tr>
+                        <th>Môn học:</th>
+                        <td>@Model.Subject?.SubjectName</td>
+                    </tr>
+                    <tr>
+                        <th>Điểm số:</th>
+                        <td><strong class="text-danger">@Model.Score.ToString("0.0")</strong></td>
+                    </tr>
+                </table>
+
+                <form asp-action="Delete">
+                    <input type="hidden" name="subjectId" value="@Model.SubjectId" />
+                    <input type="hidden" name="studentId" value="@Model.StudentId" />
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-danger">
+                            <i class="bi bi-trash"></i> Xác nhận xóa
+                        </button>
+                        <a asp-action="Index" class="btn btn-secondary">Hủy bỏ</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+@model CnttLesson12.Models.Category
+
+@{
+    ViewData["Title"] = "Chi tiết danh mục";
+}
+
+<h1>Chi tiết danh mục</h1>
+
+<div class="card" style="max-width: 500px;">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-4">ID</dt>
+            <dd class="col-sm-8">@Model.Id</dd>
+
+            <dt class="col-sm-4">Tên danh mục</dt>
+            <dd class="col-sm-8">@Model.Name</dd>
+
+            <dt class="col-sm-4">Trạng thái</dt>
+            <dd class="col-sm-8">
+                @if (Model.Status == 1)
+                {
+                    <span class="badge bg-success">Hiển thị</span>
+                }
+                else
+                {
+                    <span class="badge bg-secondary">Ẩn</span>
+                }
+            </dd>
+
+            <dt class="col-sm-4">Ngày tạo</dt>
+            <dd class="col-sm-8">@Model.CreatedDate.ToString("dd/MM/yyyy HH:mm")</dd>
+        </dl>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Chỉnh sửa</a>
+    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+</div>

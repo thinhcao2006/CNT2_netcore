@@ -1,0 +1,19 @@
+@model CnttLesson12.Models.Subject
+
+@{
+    ViewData["Title"] = "Chi tiết môn học";
+}
+
+<h1>Chi tiết môn học</h1>
+
+<dl class="row" style="max-width:400px;">
+    <dt class="col-sm-4">ID</dt>
+    <dd class="col-sm-8">@Model.Id</dd>
+    <dt class="col-sm-4">Tên môn học</dt>
+    <dd class="col-sm-8">@Model.SubjectName</dd>
+</dl>
+
+<div class="mt-2">
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Chỉnh sửa</a>
+    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+</div>

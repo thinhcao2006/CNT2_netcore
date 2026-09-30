@@ -1,0 +1,38 @@
+@model CnttLesson12.Models.StdClass
+
+@{
+    ViewData["Title"] = "Chi tiết lớp học";
+}
+
+<h1>Chi tiết lớp học</h1>
+
+<dl class="row" style="max-width:400px;">
+    <dt class="col-sm-4">ID</dt>
+    <dd class="col-sm-8">@Model.Id</dd>
+    <dt class="col-sm-4">Tên lớp</dt>
+    <dd class="col-sm-8">@Model.ClassName</dd>
+</dl>
+
+@if (Model.Students != null && Model.Students.Any())
+{
+    <h5>Danh sách sinh viên trong lớp</h5>
+    <table class="table table-bordered" style="max-width:600px;">
+        <thead class="table-secondary">
+            <tr><th>Họ tên</th><th>Email</th></tr>
+        </thead>
+        <tbody>
+            @foreach (var s in Model.Students)
+            {
+                <tr>
+                    <td>@s.StudentName</td>
+                    <td>@s.StudentEmail</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<div class="mt-2">
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Chỉnh sửa</a>
+    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+</div>

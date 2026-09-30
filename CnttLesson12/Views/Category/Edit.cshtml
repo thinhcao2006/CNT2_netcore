@@ -1,0 +1,44 @@
+@model CnttLesson12.Models.Category
+
+@{
+    ViewData["Title"] = "Chỉnh sửa danh mục";
+}
+
+<h1>Chỉnh sửa danh mục</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group mb-3">
+                <label asp-for="Name" class="control-label">Tên danh mục</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Status" class="control-label">Trạng thái</label>
+                <select asp-for="Status" class="form-control">
+                    <option value="1">Hiển thị</option>
+                    <option value="0">Ẩn</option>
+                </select>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="CreatedDate" class="control-label">Ngày tạo</label>
+                <input asp-for="CreatedDate" class="form-control" type="datetime-local" />
+            </div>
+
+            <div class="form-group mb-3">
+                <input type="submit" value="Lưu" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

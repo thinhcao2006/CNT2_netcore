@@ -1,0 +1,84 @@
+@model CnttLesson12.Models.Student
+
+@{
+    ViewData["Title"] = "Chỉnh sửa sinh viên";
+}
+
+<h1>Chỉnh sửa sinh viên</h1>
+
+<div class="row">
+    <div class="col-md-7">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group mb-3">
+                <label asp-for="StudentName" class="control-label">Họ tên</label>
+                <input asp-for="StudentName" class="form-control" />
+                <span asp-validation-for="StudentName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="StudentEmail" class="control-label">Email</label>
+                <input asp-for="StudentEmail" class="form-control" type="email" />
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="StudentPhone" class="control-label">Số điện thoại</label>
+                <input asp-for="StudentPhone" class="form-control" />
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="StudentAddress" class="control-label">Địa chỉ</label>
+                <input asp-for="StudentAddress" class="form-control" />
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="StudentBirthday" class="control-label">Ngày sinh</label>
+                <input asp-for="StudentBirthday" class="form-control" type="date" />
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="ClassId" class="control-label">Lớp</label>
+                <select asp-for="ClassId" class="form-control" asp-items="ViewBag.ClassId">
+                    <option value="">-- Chọn lớp --</option>
+                </select>
+            </div>
+
+            <div class="form-group mb-3">
+                <label class="control-label">Ảnh hiện tại</label><br />
+                @if (!string.IsNullOrEmpty(Model.StudentAvatar))
+                {
+                    <img src="@Model.StudentAvatar" style="width:80px;height:80px;border-radius:50%;object-fit:cover;" class="mb-2" />
+                    <input type="hidden" asp-for="StudentAvatar" />
+                }
+            </div>
+
+            <div class="form-group mb-3">
+                <label class="control-label">Đổi avatar (bỏ trống nếu không đổi)</label>
+                <input type="file" name="avatarFile" class="form-control" accept="image/*" id="avatarInput" />
+                <img id="avatarPreview" src="#" alt="Preview" style="display:none;width:80px;height:80px;border-radius:50%;object-fit:cover;margin-top:8px;" />
+            </div>
+
+            <div class="form-group mb-3">
+                <input type="submit" value="Lưu" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        document.getElementById('avatarInput').addEventListener('change', function () {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var preview = document.getElementById('avatarPreview');
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            };
+            reader.readAsDataURL(this.files[0]);
+        });
+    </script>
+}

@@ -1,0 +1,24 @@
+@model CnttLesson12.Models.Student
+
+@{
+    ViewData["Title"] = "Xóa sinh viên";
+}
+
+<h1>Xóa sinh viên</h1>
+
+<div class="alert alert-danger">Bạn có chắc muốn xóa sinh viên này không?</div>
+
+<dl class="row" style="max-width:500px;">
+    <dt class="col-sm-4">Họ tên</dt>
+    <dd class="col-sm-8">@Model.StudentName</dd>
+    <dt class="col-sm-4">Email</dt>
+    <dd class="col-sm-8">@Model.StudentEmail</dd>
+    <dt class="col-sm-4">Lớp</dt>
+    <dd class="col-sm-8">@Model.StdClass?.ClassName</dd>
+</dl>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <input type="submit" value="Xác nhận xóa" class="btn btn-danger" />
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>

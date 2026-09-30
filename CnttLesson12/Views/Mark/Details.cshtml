@@ -1,0 +1,49 @@
+@model CnttLesson12.Models.Mark
+
+@{
+    ViewData["Title"] = "Chi tiết điểm số";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-info text-white">
+                <h4 class="mb-0"><i class="bi bi-info-circle"></i> Chi tiết điểm sinh viên</h4>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th style="width: 35%;">Sinh viên:</th>
+                        <td>@Model.Student?.StudentName (@Model.Student?.StudentEmail)</td>
+                    </tr>
+                    <tr>
+                        <th>Môn học:</th>
+                        <td>@Model.Subject?.SubjectName</td>
+                    </tr>
+                    <tr>
+                        <th>Điểm số:</th>
+                        <td><span class="fs-5 fw-bold text-primary">@Model.Score.ToString("0.0")</span></td>
+                    </tr>
+                    <tr>
+                        <th>Xếp loại:</th>
+                        <td>
+                            @{
+                                var grade = Model.Score >= 8 ? "Giỏi" :
+                                            Model.Score >= 6.5 ? "Khá" :
+                                            Model.Score >= 5 ? "Trung bình" : "Yếu / Thi lại";
+                            }
+                            <span class="badge bg-secondary">@grade</span>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="d-flex gap-2 mt-3">
+                    <a asp-action="Edit" asp-route-subjectId="@Model.SubjectId" asp-route-studentId="@Model.StudentId" class="btn btn-warning">
+                        <i class="bi bi-pencil"></i> Sửa
+                    </a>
+                    <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
