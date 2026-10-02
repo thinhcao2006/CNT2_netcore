@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CnttLesson13Layout</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/css/CnttLayoutProduct.css" rel="stylesheet" asp-append-version="true" />
+</head>
+<body>
+    <header class="container border my-2 bg-white rounded shadow-sm d-flex justify-content-between align-items-center py-2 px-3">
+        <div class="logo">
+            <a asp-controller="Home" asp-action="Index">
+                <img src="https://daihocnguyentrai.edu.vn/wp-content/uploads/2024/03/logo.png" alt="NTU - Đại Học Nguyễn Trãi" />
+            </a>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary btn-sm">Trang chủ chính</a>
+            <a asp-area="CnttAdmins" asp-controller="Home" asp-action="Index" class="btn btn-primary btn-sm">Khu vực Admin</a>
+        </div>
+    </header>
+
+    <nav class="container product-nav border my-2 p-0 shadow-sm">
+        <ul>
+            <li><a asp-controller="CnttProducts" asp-action="Index">Danh sách Sản phẩm</a></li>
+            <li><a asp-controller="CnttProducts" asp-action="Search">Tìm kiếm sản phẩm</a></li>
+            <li><a asp-controller="CnttProducts" asp-action="Hots">Sản phẩm bán chạy</a></li>
+        </ul>
+    </nav>
+
+    <section class="main container border my-2 shadow-sm">
+        @RenderBody()
+    </section>
+
+    <footer class="container product-footer border my-2 shadow-sm">
+        <p class="text-center">&copy; 2026 - @@Copyright By @@Cntt - Khoa CNTT</p>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/CnttLayoutHome.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

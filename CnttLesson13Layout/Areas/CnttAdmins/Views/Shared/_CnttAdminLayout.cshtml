@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Khu vực Quản trị Admin CNTT</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <style>
+        body {
+            background-color: #f1f5f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .admin-wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+        .admin-sidebar {
+            width: 260px;
+            background: #1e293b;
+            color: #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        }
+        .admin-sidebar .sidebar-brand {
+            padding: 20px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #38bdf8;
+            border-bottom: 1px solid #334155;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .admin-sidebar .nav-link {
+            color: #94a3b8;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        .admin-sidebar .nav-link:hover, .admin-sidebar .nav-link.active {
+            color: #ffffff;
+            background: #0f172a;
+            border-left: 4px solid #38bdf8;
+        }
+        .admin-main {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+        .admin-header {
+            background: #ffffff;
+            padding: 16px 24px;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .admin-content {
+            padding: 24px;
+            flex-grow: 1;
+        }
+        .admin-footer {
+            background: #ffffff;
+            padding: 16px 24px;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-brand">
+                <span>⚡ CNTT Admin Panel</span>
+            </div>
+            <nav class="nav flex-column mt-3">
+                <a class="nav-link active" asp-area="CnttAdmins" asp-controller="Home" asp-action="Index">
+                    <span>📊 Tổng quan Dashboard</span>
+                </a>
+                <a class="nav-link" asp-area="" asp-controller="CnttProducts" asp-action="Index">
+                    <span>📦 Xem trang Sản phẩm</span>
+                </a>
+                <a class="nav-link" asp-area="" asp-controller="CnttProducts" asp-action="Hots">
+                    <span>🔥 Sản phẩm bán chạy</span>
+                </a>
+                <a class="nav-link" asp-area="" asp-controller="CnttProducts" asp-action="Search">
+                    <span>🔍 Tìm kiếm sản phẩm</span>
+                </a>
+                <hr class="text-secondary mx-3 my-2" />
+                <a class="nav-link text-warning" asp-area="" asp-controller="Home" asp-action="Index">
+                    <span>⬅️ Về trang chủ User</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="admin-main">
+            <!-- Header -->
+            <header class="admin-header">
+                <div>
+                    <h5 class="m-0 fw-bold text-dark">Hệ Thống Quản Trị - Area CnttAdmins</h5>
+                    <small class="text-muted">Bài tập Session 07 - Tìm hiểu về Layout & Area</small>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2">
+                        ● Quản trị viên CNTT
+                    </span>
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary btn-sm">
+                        Thoát Admin
+                    </a>
+                </div>
+            </header>
+
+            <!-- Body -->
+            <main class="admin-content">
+                @RenderBody()
+            </main>
+
+            <!-- Footer -->
+            <footer class="admin-footer">
+                &copy; 2026 - CnttLesson13Layout - Area CnttAdmins - Giảng viên hướng dẫn: @@Chung Trịnh
+            </footer>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

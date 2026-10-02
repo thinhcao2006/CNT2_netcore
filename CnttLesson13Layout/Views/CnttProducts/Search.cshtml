@@ -1,0 +1,50 @@
+@{
+    ViewData["Title"] = "Tìm kiếm sản phẩm";
+    Layout = "~/Views/Shared/_CnttLayoutProduct.cshtml";
+    var keyword = ViewData["keyword"] as string;
+}
+
+<div class="search-page">
+    <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+        <h2 class="text-primary fw-bold mb-0">@ViewData["Title"]</h2>
+        <span class="badge bg-secondary fs-6">Layout: _CnttLayoutProduct.cshtml</span>
+    </div>
+
+    <div class="card p-4 shadow-sm mb-4 border-0 bg-light">
+        <form asp-controller="CnttProducts" asp-action="Search" method="get" class="row g-3">
+            <div class="col-md-9">
+                <input type="text" name="keyword" value="@keyword" class="form-control form-control-lg" placeholder="Nhập tên sản phẩm cần tìm kiếm..." />
+            </div>
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-primary btn-lg w-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search me-1" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                    Tìm kiếm
+                </button>
+            </div>
+        </form>
+    </div>
+
+    @if (!string.IsNullOrEmpty(keyword))
+    {
+        <div class="alert alert-info">
+            Kết quả tìm kiếm cho từ khóa: <strong>"@keyword"</strong>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 g-3">
+            <div class="col">
+                <div class="card p-3 border shadow-sm">
+                    <h5 class="fw-bold">@keyword - Phiên bản Tiêu chuẩn</h5>
+                    <p class="text-muted">Mô tả sản phẩm khớp với từ khóa tìm kiếm "@keyword".</p>
+                    <span class="text-danger fw-bold">Liên hệ để có giá tốt</span>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="text-muted text-center py-5">
+            <p>Vui lòng nhập từ khóa để bắt đầu tra cứu sản phẩm trong hệ thống.</p>
+        </div>
+    }
+</div>

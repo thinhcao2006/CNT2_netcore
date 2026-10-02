@@ -1,0 +1,72 @@
+@{
+    ViewData["Title"] = "Sản phẩm bán chạy";
+    Layout = "~/Views/Shared/_CnttLayoutProduct.cshtml";
+}
+
+<div class="hots-page">
+    <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+        <h2 class="text-danger fw-bold mb-0">
+            🔥 @ViewData["Title"]
+        </h2>
+        <span class="badge bg-danger fs-6">Hot Trend 2026</span>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0 position-relative">
+                <span class="position-absolute top-0 end-0 bg-danger text-white px-2 py-1 m-2 rounded fw-bold fs-7">HOT - Top 1</span>
+                <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&auto=format&fit=crop&q=60" class="card-img-top" alt="Gaming PC" style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Bộ PC Gaming RTX 4080</h5>
+                    <p class="card-text text-muted">Cấu hình khủng cân mọi tựa game AAA và xử lý đồ họa render 3D nặng.</p>
+                    <div class="progress mb-2" style="height: 6px;">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 85%;"></div>
+                    </div>
+                    <small class="text-muted">Đã bán 128 bộ trong tháng</small>
+                </div>
+                <div class="card-footer bg-transparent d-flex justify-content-between align-items-center border-0 pt-0">
+                    <span class="text-danger fw-bold fs-5">45.500.000 đ</span>
+                    <button class="btn btn-danger btn-sm">Mua ngay</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0 position-relative">
+                <span class="position-absolute top-0 end-0 bg-danger text-white px-2 py-1 m-2 rounded fw-bold fs-7">HOT - Top 2</span>
+                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500&auto=format&fit=crop&q=60" class="card-img-top" alt="Smart Watch" style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Apple Watch Ultra 2</h5>
+                    <p class="card-text text-muted">Thời lượng pin ấn tượng, GPS đa tần số chính xác, vỏ titan siêu bền.</p>
+                    <div class="progress mb-2" style="height: 6px;">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 72%;"></div>
+                    </div>
+                    <small class="text-muted">Đã bán 96 chiếc trong tháng</small>
+                </div>
+                <div class="card-footer bg-transparent d-flex justify-content-between align-items-center border-0 pt-0">
+                    <span class="text-danger fw-bold fs-5">19.990.000 đ</span>
+                    <button class="btn btn-danger btn-sm">Mua ngay</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0 position-relative">
+                <span class="position-absolute top-0 end-0 bg-danger text-white px-2 py-1 m-2 rounded fw-bold fs-7">HOT - Top 3</span>
+                <img src="https://images.unsplash.com/photo-1588702547919-26089e690ecc?w=500&auto=format&fit=crop&q=60" class="card-img-top" alt="Keyboard" style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Bàn phím cơ Custom CNTT Pro</h5>
+                    <p class="card-text text-muted">Switch Gateron mượt mà, keycap PBT doubleshot, led RGB đa hiệu ứng.</p>
+                    <div class="progress mb-2" style="height: 6px;">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 65%;"></div>
+                    </div>
+                    <small class="text-muted">Đã bán 78 chiếc trong tháng</small>
+                </div>
+                <div class="card-footer bg-transparent d-flex justify-content-between align-items-center border-0 pt-0">
+                    <span class="text-danger fw-bold fs-5">2.450.000 đ</span>
+                    <button class="btn btn-danger btn-sm">Mua ngay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+@{
+    ViewData["Title"] = "Trang chủ - CnttLesson13Layout";
+}
+
+<div class="py-4">
+    <div class="p-5 mb-4 bg-light rounded-3 border shadow-sm">
+        <div class="container-fluid py-2">
+            <h1 class="display-5 fw-bold text-primary">Session 07: Tìm hiểu về Layout</h1>
+            <p class="col-md-10 fs-5 text-muted">
+                Ứng dụng minh họa ASP.NET Core MVC: Sử dụng Layout mặc định (_K24CNT2_G1_Layout), Custom Layout (_CnttLayoutProduct), tích hợp CSS/JS tùy biến, và cấu trúc phân hệ Quản trị (Area CnttAdmins).
+            </p>
+            <div class="d-flex gap-3 mt-4">
+                <a asp-controller="CnttProducts" asp-action="Index" class="btn btn-primary btn-lg px-4">
+                    🛍️ Xem trang Sản phẩm (Custom Layout)
+                </a>
+                <a asp-area="CnttAdmins" asp-controller="Home" asp-action="Index" class="btn btn-outline-dark btn-lg px-4">
+                    ⚙️ Khu vực Quản trị (Area Admin)
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row align-items-md-stretch g-4">
+        <div class="col-md-4">
+            <div class="h-100 p-4 text-white bg-dark rounded-3 shadow-sm">
+                <h3>1. Default & Custom Layout</h3>
+                <p>Cấu hình <code>_ViewStart.cshtml</code> trỏ đến <code>_K24CNT2_G1_Layout.cshtml</code> và tạo Layout chuyên biệt <code>_CnttLayoutProduct.cshtml</code> cho nhóm trang sản phẩm.</p>
+                <a asp-controller="CnttProducts" asp-action="Index" class="btn btn-outline-light btn-sm">Xem trang sản phẩm</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="h-100 p-4 bg-light border rounded-3 shadow-sm">
+                <h3>2. Tùy biến CSS & JavaScript</h3>
+                <p>Sử dụng <code>CnttLayoutProduct.css</code> và <code>CnttLayoutHome.js</code> để tạo hiệu ứng chuyển động, làm nổi bật thanh điều hướng khi click hoặc active theo URL.</p>
+                <a asp-controller="CnttProducts" asp-action="Hots" class="btn btn-outline-secondary btn-sm">Xem sản phẩm Hot</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="h-100 p-4 bg-primary text-white rounded-3 shadow-sm">
+                <h3>3. Phân hệ Area (CnttAdmins)</h3>
+                <p>Tổ chức kiến trúc tách biệt cho ban quản trị gồm Controller riêng (<code>CnttAdmins</code> Area), view riêng và layout quản trị độc lập (<code>_CnttAdminLayout</code>).</p>
+                <a asp-area="CnttAdmins" asp-controller="Home" asp-action="Index" class="btn btn-light btn-sm">Truy cập Admin</a>
+            </div>
+        </div>
+    </div>
+</div>
